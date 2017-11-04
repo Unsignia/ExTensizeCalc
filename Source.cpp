@@ -1,0 +1,435 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+
+void PrintIntro();
+char showMenu();
+// Algebra Function Prototypes
+void additionFunc();
+void subtractionFunc();
+void multiplicationFunc();
+void divisionFunc();
+
+// Trig Function Prototypes
+void angleFunc();
+void angCompute();
+void angConvert();
+
+void refFunc();
+void identityFunc();
+void lawFunc();
+void polarFunc();
+void formFunc();
+void arcFunc();
+
+
+int endFunc();
+void errorFunc();
+
+// Menu for type of Math
+int main() 
+{
+	PrintIntro();
+	showMenu();
+
+	return 0;
+}
+
+
+char showMenu()
+{
+	char choice1 = '0';
+	char ALGEBRA_CHOICE = '1',
+		TRIGONOMETRY_CHOICE = '2',
+		GEOMETRY_CHOICE = '3',
+		CALCULUS_CHOICE = '4',
+		QUIT_CHOICE = 'Q';
+
+	cout << "\t\tMATHEMATICS Menu\n\n"
+		<< "1. Algebra\n"
+		<< "2. Trigonometry\n"
+		<< "3. Geometry\n"
+		<< "4. Calculus\n\n"
+		<< "Q. Quit the Program\n\n"
+		<< "Enter your choice: ";
+	cin >> choice1;
+
+	if (choice1 == ALGEBRA_CHOICE)
+	{
+		char choice2 = '0';
+		char ADDITION_CHOICE = '1',
+			SUBTRACTION_CHOICE = '2',
+			MULTIPLICATION_CHOICE = '3',
+			DIVISION_CHOICE = '4',
+			QUIT_CHOICE = 'Q';
+
+		cout << "\n\t\tALGEBRA Menu\n\n"
+			<< "1. Addition\n"
+			<< "2. Subtraction\n"
+			<< "3. Multiplication\n"
+			<< "4. Division\n\n"
+			<< "Q. Quit the Program\n\n"
+			<< "Enter your choice: ";
+		cin >> choice2;
+
+		// Algebra Choices
+		switch (choice2) 
+		{
+		case '1': additionFunc();
+			break;
+		case '2': subtractionFunc();
+			break;
+		case '3': multiplicationFunc();
+			break;
+		case '4': divisionFunc();
+			break;
+		case 'Q': endFunc();
+			break;
+		default: cout << "Error: Enter one of the choices correctly.";
+			break;
+		}
+	}
+
+	else if (choice1 == TRIGONOMETRY_CHOICE)
+	{
+		char choice3 = '0';
+
+		char ANGLE_CHOICE = '1',
+			REF_CHOICE = '2',
+			IDENTITY_CHOICE = '3',
+			LAW_CHOICE = '4',
+			POLAR_CHOICE = '5',
+			ARC_CHOICE = '6',
+			FORM_CHOICE = 'F',
+			QUIT_CHOICE = 'Q';
+
+		// TODO compress the categories w/ descriptions
+		cout << "\n\t\tTRIGONOMETRY Menu\n"
+			<< "\tThere is NO graphing in this program.\n"
+			<< "\t\tANGLES ARE IN DEGREES\n\n"
+			<< "1. Angle Compuatation & Conversion\n"
+			<< "2. Reference/Terminal Angles\n"
+			<< "3. Trigonometric Identities\n" 
+			<< "4. Law of Sines/Law of Cosines/Law of Tangents\n"
+			<< "5. Polar Equations\n"
+			<< "6. Arc/Sectors\n"
+			<< "F. Formula List\n\n" // Is this needed?
+			<< "Q. Quit the Program\n\n"
+			<< "Enter your choice: ";
+		cin >> choice3;
+
+		// Trig Choices
+		switch (choice3)
+	{
+		case '1': angleFunc();
+			break;
+		case '2': refFunc();
+			break;
+		case '3': identityFunc();
+			break;
+		case '4': lawFunc();
+			break;
+		case '5': polarFunc();
+			break;
+		case '6': arcFunc();
+			break;
+		case 'F': formFunc();
+			break;
+		case 'Q': endFunc();
+			break;
+		default: errorFunc();
+			break;
+	}
+	}
+
+
+	else;
+	return choice1;
+}
+
+void PrintIntro() 
+{
+	cout << "\tThis is a simple calculator program.\n"
+		<< "\tThis program can accept up to 3 input\n" 
+		<< "\tfrom the user for each operation.\n\n\n";
+}
+ 
+
+// Functions for ALGEBRA
+void additionFunc()
+{
+	// Basic addition (up to 3 numbers)
+
+	float num1 = 0.0, num2 = 0.0, num3 = 0.0, sum = 0.0;
+
+	char addMore = ' ';
+
+	cout << "\n\nWhich two numbers do you want to add?" << endl;
+	cout << "First number: ";
+	cin >> num1;
+
+	cout << "Second number: ";
+	cin >> num2;
+
+	sum = num1 + num2;
+
+	cout << "\nThe sum is: \n" << sum;
+	cout << "\n\nDo you want to add another number to the sum? (Y/N)\n";
+	cin >> addMore;
+
+	if (addMore == 'y' || addMore == 'Y') 
+	{
+		cout << "\nWhat number do you want to add?\n";
+		cin >> num3;
+		sum += num3;
+		cout << "\n\t\tThe sum is: " << sum << ".\n";
+	}
+
+	else if (addMore == 'n' || addMore == 'N') 
+	{
+		cout << "\nThe program will exit now.";
+	}
+
+	else 
+	{
+		cout << "\nPeace out.";
+	}
+};
+
+void subtractionFunc() 
+{
+	//Basic subtraction (up to 3 numbers)
+
+	float num4 = 0.0, num5 = 0.0, num6 = 0.0, subResult = 0.0;
+
+	char subMore = 's';
+
+	cout << "\n\nWhich two numbers do you want to subtract?" << endl;
+	cout << "First number: ";
+	cin >> num4;
+
+	cout << "Second number: ";
+	cin >> num5;
+
+	subResult = num4 - num5;
+
+	cout << "\nThe result is: \n" << subResult;
+	cout << "\n\nDo you want to subtract another number from the result? (Y/N)\n";
+	cin >> subMore;
+
+	if (subMore == 'y' || subMore == 'Y') 
+	{
+		cout << "\nWhich number do you want to subtract?: ";
+		cin >> num6;
+		subResult -= num6;
+		cout << "\n\t\tThe difference is: " << subResult << ".\n";
+	}
+
+	else if (subMore == 'n' || subMore == 'N') 
+	{
+		cout << "\n\nThe program will exit now." << endl;
+	}
+
+	else 
+	{
+		cout << "\n\nPeace out.";
+	}
+};
+
+void multiplicationFunc() 
+{
+	// Basic multiplication (up to 3 numbers)
+
+	float num7 = 0.0, num8 = 0.0, num9 = 0.0, product = 0.0;
+
+	char multMore = 's';
+
+	cout << "\n\nWhich two numbers do you want to multiply?" << endl;
+	cout << "First number: ";
+	cin >> num7;
+
+	cout << "Second number: ";
+	cin >> num8;
+
+	product = num7 * num8;
+
+	cout << "\nThe product is: \n" << product;
+	cout << "\n\nDo you want to multiply another number to the result? (Y/N)\n";
+	cin >> multMore;
+
+	if (multMore == 'y' || multMore == 'Y') 
+	{
+		cout << "\nWhat number do you want to multiply?\n";
+		cin >> num9;
+		product *= num9;
+		cout << "\n\t\tThe product is: " << product << ".\n";
+	}
+
+	else if (multMore == 'n' || multMore == 'N') 
+	{
+		cout << "\nThe program will exit now.";
+	}
+
+	else
+	{
+		cout << "\nPeace out.";
+	}
+}
+
+void divisionFunc() 
+{
+	// Basic division (up to 3 numbers)
+
+	float num10 = 0.0, num11 = 0.0, num12 = 0.0, quotient = 0.0;
+
+	char divMore = 's';
+
+	cout << "\n\nWhich two numbers do you want to divide?" << endl;
+	cout << "First number: ";
+	cin >> num10;
+
+	cout << "Second number: ";
+	cin >> num11;
+
+	quotient = num10 / num11;
+
+	cout << "\nThe quotient is: \n" << quotient;
+	cout << "\n\nDo you want to divide another number to the quotient? (Y/N)\n";
+	cin >> divMore;
+
+	if (divMore == 'y' || divMore == 'Y') 
+	{
+		cout << "\nWhat number do you want to divide?\n";
+		cin >> num12;
+		quotient /= num12;
+		cout << "\n\t\tThe quotient is: " << quotient << ".\n";
+	}
+
+	else if (divMore == 'n' || divMore == 'N') 
+	{
+		cout << "\nThe program will exit now.";
+	}
+
+	else
+	{
+		cout << "\nPeace out.";
+	}
+}
+
+
+// Functions for TRIGONOMETRY
+
+	// Angle Functions
+void angleFunc()
+{
+	char anglechoice = '0';
+
+	cout << "\t\tAngles\n\n\n"
+		<< "1. Angle Computation\n" 
+		<< "2. Angle Conversion\n\n"
+		<< "Enter your choice: ";
+
+	cin >> anglechoice;
+
+	switch (anglechoice)
+	{
+	case '1': angCompute();
+		break;
+	case '2': angConvert();
+		break;
+	default: errorFunc();
+		break;
+	}
+
+}
+void angCompute()
+{
+	cout << "\t\n\nCOMPUTE ANGLES\n\n"
+		<< "";
+	
+}
+void angConvert()
+{
+	float rads, degs, 
+	char convchoice = ' ';
+
+	cout << "\t\n\nCONVERT ANGLES\n\n"
+		<< "1. Radians to Degrees\n"
+		<< "2. Degrees to Radians"
+		<< "Enter your choice: ";
+	cin >> convchoice;
+
+	if (convchoice == 1)
+	{
+		cout << "\n\nRadians to Degrees\n\n"
+			<< "Radians: ";
+		cin >> rads;
+	}
+	else if (convchoice == 2)
+	{
+		cout << "Degrees to Radians"
+			<< "Degrees: ";
+		cin >> degs;
+
+	}
+	else 
+	{
+		errorFunc();
+	}
+}
+
+
+
+
+
+
+void refFunc()
+{
+
+}
+
+void identityFunc()
+{
+
+}
+
+void lawFunc()
+{
+
+}
+
+void polarFunc()
+{
+
+}
+
+void arcFunc()
+{
+
+}
+
+void formFunc()
+{
+
+}
+
+
+
+
+
+
+ // Function to end program
+int endFunc()
+{
+	return 0;
+}
+
+// Function to display error message
+void errorFunc()
+{
+	cout << "Error: Enter one of the choices correctly.";
+}
+
+
+
