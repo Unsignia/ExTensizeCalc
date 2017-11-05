@@ -27,6 +27,8 @@ void arcFunc();
 int endFunc();
 void errorFunc();
 
+const double pi = 3.14159;
+
 // Menu for type of Math
 int main() 
 {
@@ -90,7 +92,6 @@ char showMenu()
 			break;
 		}
 	}
-
 	else if (choice1 == TRIGONOMETRY_CHOICE)
 	{
 		char choice3 = '0';
@@ -109,7 +110,7 @@ char showMenu()
 			<< "\tThere is NO graphing in this program.\n"
 			<< "\t\tANGLES ARE IN DEGREES\n\n"
 			<< "1. Angle Compuatation & Conversion\n"
-			<< "2. Reference/Terminal Angles\n"
+			<< "2. Reference/Coterminal Angles\n"
 			<< "3. Trigonometric Identities\n" 
 			<< "4. Law of Sines/Law of Cosines/Law of Tangents\n"
 			<< "5. Polar Equations\n"
@@ -142,8 +143,7 @@ char showMenu()
 			break;
 	}
 	}
-
-
+	
 	else;
 	return choice1;
 }
@@ -185,18 +185,15 @@ void additionFunc()
 		sum += num3;
 		cout << "\n\t\tThe sum is: " << sum << ".\n";
 	}
-
 	else if (addMore == 'n' || addMore == 'N') 
 	{
 		cout << "\nThe program will exit now.";
 	}
-
 	else 
 	{
 		cout << "\nPeace out.";
 	}
 };
-
 void subtractionFunc() 
 {
 	//Basic subtraction (up to 3 numbers)
@@ -225,18 +222,15 @@ void subtractionFunc()
 		subResult -= num6;
 		cout << "\n\t\tThe difference is: " << subResult << ".\n";
 	}
-
 	else if (subMore == 'n' || subMore == 'N') 
 	{
 		cout << "\n\nThe program will exit now." << endl;
 	}
-
 	else 
 	{
 		cout << "\n\nPeace out.";
 	}
 };
-
 void multiplicationFunc() 
 {
 	// Basic multiplication (up to 3 numbers)
@@ -265,18 +259,15 @@ void multiplicationFunc()
 		product *= num9;
 		cout << "\n\t\tThe product is: " << product << ".\n";
 	}
-
 	else if (multMore == 'n' || multMore == 'N') 
 	{
 		cout << "\nThe program will exit now.";
 	}
-
 	else
 	{
 		cout << "\nPeace out.";
 	}
 }
-
 void divisionFunc() 
 {
 	// Basic division (up to 3 numbers)
@@ -305,12 +296,10 @@ void divisionFunc()
 		quotient /= num12;
 		cout << "\n\t\tThe quotient is: " << quotient << ".\n";
 	}
-
 	else if (divMore == 'n' || divMore == 'N') 
 	{
 		cout << "\nThe program will exit now.";
 	}
-
 	else
 	{
 		cout << "\nPeace out.";
@@ -319,7 +308,6 @@ void divisionFunc()
 
 
 // Functions for TRIGONOMETRY
-
 	// Angle Functions
 void angleFunc()
 {
@@ -345,13 +333,63 @@ void angleFunc()
 }
 void angCompute()
 {
+	float degrees = 0.0;
+	char compchoice = ' ';
+
 	cout << "\t\n\nCOMPUTE ANGLES\n\n"
-		<< "";
-	
+		<< "1. Sine\n"
+		<< "2. Cosine\n"
+		<< "3. Tangent\n"
+		<< "4. Cosecant\n"
+		<< "5. Secant\n"
+		<< "6. Cotangent\n\n"
+		<< "Enter your choice: ";
+	cin >> compchoice;		
+
+	if (compchoice == 1)
+	{
+		cout << "\n\nEnter angle (in °): ";
+		cin >> degrees;
+		cout << sin(degrees) << endl;
+	}
+	else if (compchoice == 2)
+	{
+		cout << "\n\nEnter angle (in °): ";
+		cin >> degrees;
+		cout << cos(degrees) << endl;
+	}
+	else if (compchoice == 3)
+	{
+		cout << "\n\nEnter angle (in °): ";
+		cin >> degrees;
+		cout << tan(degrees) << endl;
+	}
+	else if (compchoice == 4)
+	{
+		cout << "\n\nEnter angle (in °): ";
+		cin >> degrees;
+		cout << asin(degrees) << endl;
+	}
+	else if (compchoice == 5)
+	{
+		cout << "\n\nEnter angle (in °): ";
+		cin >> degrees;
+		cout << acos(degrees) << endl;
+	}
+	else if (compchoice == 6)
+	{
+		cout << "\n\nEnter angle (in °): ";
+		cin >> degrees;
+		cout << atan(degrees) << endl;
+	}
+	else
+	{
+		errorFunc();
+	}	
 }
 void angConvert()
 {
-	float rads, degs, 
+	float rads = 0.0, radstodegs = 0.0, degs = 0.0, degstorads = 0.0;
 	char convchoice = ' ';
 
 	cout << "\t\n\nCONVERT ANGLES\n\n"
@@ -360,33 +398,92 @@ void angConvert()
 		<< "Enter your choice: ";
 	cin >> convchoice;
 
+	radstodegs = (180 / pi) * rads;
+	degstorads = (pi / 180) * degs;
+
 	if (convchoice == 1)
 	{
 		cout << "\n\nRadians to Degrees\n\n"
 			<< "Radians: ";
 		cin >> rads;
+
+		cout << "\nDegrees: " << radstodegs << "°";
 	}
 	else if (convchoice == 2)
 	{
-		cout << "Degrees to Radians"
+		cout << "\n\nDegrees to Radians\n\n"
 			<< "Degrees: ";
 		cin >> degs;
 
+		cout << "\nRadians: " << degstorads << " rad";
 	}
 	else 
 	{
 		errorFunc();
 	}
 }
-
-
-
-
-
-
 void refFunc()
 {
+	float angle = 0.0, refang = 0.0;
+	char refchoice = ' ';
 
+	cout << "\n\tREFERENCE/COTERMINAL ANGLES\n\n"
+		<< "1. Reference\n"
+		<< "2. Coterminal\n\n"
+		<< "Enter your choice: ";
+		cin >> refchoice;
+
+		//fix
+		if (refchoice == '1')
+		{
+			cout << "\n\t\tREFERENCE ANGLE\n"
+				<< "\tFor angles between 0-360\n\n"
+				<< "Enter an angle: ";
+			cin >> angle;
+
+			cout << "\nReference angle: ";
+
+			if (angle >= 0 && angle < 90)
+			{
+				cout << angle << endl;
+			}
+			else if (angle >= 90 && angle < 180)
+			{
+				cout << (180 - angle) << endl;
+			}
+			else if (angle >= 180 && angle < 270)
+			{
+				cout << (angle - 180) << endl;
+			}
+			else if (angle >= 270 && angle <= 360)
+			{
+				cout << (360 - angle) << endl;
+			}
+			else
+			{
+				cout << "\nError: Enter a number between 0-360.";
+			}
+		}
+		else if (refchoice == '2')
+		{
+			cout << "\n\t\tCOTERMINAL ANGLE\n"
+				<< "\tWill show 3 coterminal angles\n\n"
+				<< "Enter an angle: ";
+			cin >> angle;
+
+			cout << "\nCoterminal Angles: ";
+
+			for (int count = 0; count <= 2; count++)
+			{
+				refang = angle + 360;
+				cout << refang << " ";
+			}
+			cout << endl;
+		}
+		else
+		{
+			errorFunc();
+		}
 }
 
 void identityFunc()
@@ -413,8 +510,6 @@ void formFunc()
 {
 
 }
-
-
 
 
 
