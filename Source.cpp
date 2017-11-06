@@ -366,19 +366,19 @@ void angCompute()
 	}
 	else if (compchoice == 4)
 	{
-		cout << "\n\nEnter angle (in °): ";
+		cout << "\n\nEnter number: ";
 		cin >> degrees;
 		cout << asin(degrees) << endl;
 	}
 	else if (compchoice == 5)
 	{
-		cout << "\n\nEnter angle (in °): ";
+		cout << "\n\nEnter number: ";
 		cin >> degrees;
 		cout << acos(degrees) << endl;
 	}
 	else if (compchoice == 6)
 	{
-		cout << "\n\nEnter angle (in °): ";
+		cout << "\n\nEnter number: ";
 		cin >> degrees;
 		cout << atan(degrees) << endl;
 	}
@@ -485,11 +485,49 @@ void refFunc()
 			errorFunc();
 		}
 }
-
+	// Identity Functions
 void identityFunc()
 {
+	char identitychoice = ' ';
 
+	cout << "\n\tTRIG IDENTITES\n\n"
+		<< "1. Trig Rato & Reciprocal\n"
+		<< "2. Pythagorean\n"
+		<< "3. Odd/Even\n"
+		<< "4. Cofunction\n"
+		<< "5. Angle Sum & Difference\n"
+		<< "6. Half/Double/Triple Angle\n"
+		<< "7. Product/Sum\n"
+		<< "8. Ptolemy's Theorem\n\n"
+		<< "Enter your choice: ";
+	cin >> identitychoice;
+
+	switch (identitychoice)
+	{
+	case 1:;
+		break;
+	case 2:;
+		break;
+	case 3:;
+		break;
+	case 4:;
+		break;
+	case 5:;
+		break;
+	case 6:;
+		break;
+	}
 }
+
+
+
+
+
+
+
+
+
+
 
 void lawFunc()
 {
