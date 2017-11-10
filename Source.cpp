@@ -516,6 +516,13 @@ void identityFunc()
 		break;
 	case 6:;
 		break;
+	case 7:;
+		break;
+	case 8:;
+		break;
+
+	default: errorFunc();
+		break;
 	}
 }
 
@@ -548,8 +555,6 @@ void formFunc()
 {
 
 }
-
-
 
 
  // Function to end program
