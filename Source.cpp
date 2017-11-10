@@ -15,9 +15,19 @@ void divisionFunc();
 void angleFunc();
 void angCompute();
 void angConvert();
-
 void refFunc();
+
 void identityFunc();
+void trigratio();
+void pythagorean();
+void oddeven();
+void cofunction(); 
+void angsumdiff();
+void hdtangle();
+void productsum();
+void ptolemy();
+
+
 void lawFunc();
 void polarFunc();
 void formFunc();
@@ -331,6 +341,7 @@ void angleFunc()
 	}
 
 }
+
 void angCompute()
 {
 	float degrees = 0.0;
@@ -485,13 +496,14 @@ void refFunc()
 			errorFunc();
 		}
 }
+
 	// Identity Functions
 void identityFunc()
 {
 	char identitychoice = ' ';
 
 	cout << "\n\tTRIG IDENTITES\n\n"
-		<< "1. Trig Rato & Reciprocal\n"
+		<< "1. Trig Ratio & Reciprocal\n"
 		<< "2. Pythagorean\n"
 		<< "3. Odd/Even\n"
 		<< "4. Cofunction\n"
@@ -504,35 +516,59 @@ void identityFunc()
 
 	switch (identitychoice)
 	{
-	case 1:;
+	case 1: trigratio();
 		break;
-	case 2:;
+	case 2:pythagorean();
 		break;
-	case 3:;
+	case 3:oddeven();
 		break;
-	case 4:;
+	case 4:cofunction();
 		break;
-	case 5:;
+	case 5:angsumdiff();
 		break;
-	case 6:;
+	case 6:hdtangle();
 		break;
-	case 7:;
+	case 7:productsum();
 		break;
-	case 8:;
+	case 8:ptolemy();
 		break;
-
 	default: errorFunc();
 		break;
 	}
 }
 
+void trigratio()
+{
+	cout << "";
+}
+void pythagorean()
+{
 
+}
+void oddeven()
+{
 
+}
+void cofunction()
+{
 
+}
+void angsumdiff()
+{
 
+}
+void hdtangle()
+{
 
+}
+void productsum() 
+{
 
+}
+void ptolemy()
+{
 
+}
 
 
 
