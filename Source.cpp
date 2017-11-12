@@ -539,7 +539,21 @@ void identityFunc()
 
 void trigratio()
 {
-	cout << "";
+	char trigchoice = ' ';
+	cout << "\n\tTrigonomtric Ratios\n\n"
+		<< "1. SOHCAHTOA\n"
+		<< "2. Reciprocal Identities/n"
+		<< "Enter your choice: ";
+	cin >> trigchoice;
+
+	if (trigchoice == '1')
+	{
+		 cout << 
+	}
+	else if (trigchoice == '2')
+	{
+
+	}
 }
 void pythagorean()
 {
