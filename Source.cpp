@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <cmath>
 #include <string>
 using namespace std;
@@ -359,19 +359,19 @@ void angCompute()
 
 	if (compchoice == 1)
 	{
-		cout << "\n\nEnter angle (in �): ";
+		cout << "\n\nEnter angle (in °): ";
 		cin >> degrees;
 		cout << sin(degrees) << endl;
 	}
 	else if (compchoice == 2)
 	{
-		cout << "\n\nEnter angle (in �): ";
+		cout << "\n\nEnter angle (in °): ";
 		cin >> degrees;
 		cout << cos(degrees) << endl;
 	}
 	else if (compchoice == 3)
 	{
-		cout << "\n\nEnter angle (in �): ";
+		cout << "\n\nEnter angle (in °): ";
 		cin >> degrees;
 		cout << tan(degrees) << endl;
 	}
@@ -418,7 +418,7 @@ void angConvert()
 			<< "Radians: ";
 		cin >> rads;
 
-		cout << "\nDegrees: " << radstodegs << "�";
+		cout << "\nDegrees: " << radstodegs << "°";
 	}
 	else if (convchoice == 2)
 	{
@@ -516,21 +516,21 @@ void identityFunc()
 
 	switch (identitychoice)
 	{
-	case 1: trigratio();
+	case '1': trigratio();
 		break;
-	case 2:pythagorean();
+	case '2': pythagorean();
 		break;
-	case 3:oddeven();
+	case '3': oddeven();
 		break;
-	case 4:cofunction();
+	case '4': cofunction();
 		break;
-	case 5:angsumdiff();
+	case '5': angsumdiff();
 		break;
-	case 6:hdtangle();
+	case '6': hdtangle();
 		break;
-	case 7:productsum();
+	case '7': productsum();
 		break;
-	case 8:ptolemy();
+	case '8': ptolemy();
 		break;
 	default: errorFunc();
 		break;
@@ -539,20 +539,134 @@ void identityFunc()
 
 void trigratio()
 {
-	char trigchoice = ' ';
+	char trigchoice = ' ', sctchoice = ' ', cscchoice = ' ';
 	cout << "\n\tTrigonomtric Ratios\n\n"
 		<< "1. SOHCAHTOA\n"
-		<< "2. Reciprocal Identities/n"
+		<< "2. Reciprocal Identities\n\n"
 		<< "Enter your choice: ";
 	cin >> trigchoice;
 
 	if (trigchoice == '1')
-	{
-		 cout << 
-	}
+	{ // TODO Theta Unicode doesn't work right
+		cout << "\n\tSOHCAHTOA\n"
+			<< "For Right Triangles, where 0 < Θ < 90\n\n"
+			<< "1. Sine\n"
+			<< "2. Cosine\n"
+			<< "3. Tangent\n\n"
+			<< "Enter your choice: ";
+		cin >> sctchoice;
+
+		switch (sctchoice)
+		{
+		case '1':
+			cout << "\n\n\tSine\n\n"
+				<< "|\\\n"
+				<< "| \\\n"
+				<< "|  \\\n"
+				<< "|   \\\n"
+				<< "|    \\\n"
+				<< "|     \\\n"
+				<< "|      \\\n"
+				<< "|_      \\\n"
+				<< "|_|____(Θ\\\n\n\n"
+				<< "\tOpposite\n"
+				<< "Sin Θ = ---------\n"
+				<< "\tHypotenuse\n" << endl;
+			break;
+		case '2':
+			cout << "\n\n\tCosine\n\n"
+				<< "|\\\n"
+				<< "| \\\n"
+				<< "|  \\\n"
+				<< "|   \\\n"
+				<< "|    \\\n"
+				<< "|     \\\n"
+				<< "|      \\\n"
+				<< "|_      \\\n"
+				<< "|_|____(Θ\\\n\n\n"
+				<< "\tAdjacent\n"
+				<< "Cos Θ = ---------\n"
+				<< "\tHypotenuse\n" << endl;
+			break;
+		case '3':
+			cout << "\n\n\tTangent\n\n"
+				<< "|\\\n"
+				<< "| \\\n"
+				<< "|  \\\n"
+				<< "|   \\\n"
+				<< "|    \\\n"
+				<< "|     \\\n"
+				<< "|      \\\n"
+				<< "|_      \\\n"
+				<< "|_|____(Θ\\\n\n\n"
+				<< "\tOpposite\n"
+				<< "Tan Θ = ---------\n"
+				<< "\tAdjacent\n" << endl;
+			break;
+		default: errorFunc();
+			break;
+		}
+		
+	}		
 	else if (trigchoice == '2')
 	{
+		cout << "\n\tInverse Trig\n"
+			<< "For Right Triangles, where 0 < Θ < 90\n\n"
+			<< "1. Cosecant\n"
+			<< "2. Secant\n"
+			<< "3. Cotangent\n\n"
+			<< "Enter your choice: ";
+		cin >> cscchoice;
 
+		switch(cscchoice)
+		{
+	case '1':
+		cout << "\n\n\tCosecant\n\n"
+			<< "|\\\n"
+			<< "| \\\n"
+			<< "|  \\\n"
+			<< "|   \\\n"
+			<< "|    \\\n"
+			<< "|     \\\n"
+			<< "|      \\\n"
+			<< "|_      \\\n"
+			<< "|_|____(Θ\\\n\n\n"
+			<< "\tHypotenuse\n"
+			<< "Csc Θ = ---------\n"
+			<< "\tOpposite\n" << endl;
+		break;
+	case '2':
+		cout << "\n\n\tSecant\n\n"
+			<< "|\\\n"
+			<< "| \\\n"
+			<< "|  \\\n"
+			<< "|   \\\n"
+			<< "|    \\\n"
+			<< "|     \\\n"
+			<< "|      \\\n"
+			<< "|_      \\\n"
+			<< "|_|____(Θ\\\n\n\n"
+			<< "\tHypotenuse\n"
+			<< "Sec Θ = ---------\n"
+			<< "\tAdjacent\n" << endl;
+		break;
+	case '3':
+		cout << "\n\n\tCotangent\n\n"
+			<< "|\\\n"
+			<< "| \\\n"
+			<< "|  \\\n"
+			<< "|   \\\n"
+			<< "|    \\\n"
+			<< "|     \\\n"
+			<< "|      \\\n"
+			<< "|_      \\\n"
+			<< "|_|____(Θ\\\n\n\n"
+			<< "\tAdjacent\n"
+			<< "Cot Θ = ---------\n"
+			<< "\tOpposite\n" << endl;
+		break;
+	default: errorFunc();
+		break;
 	}
 }
 void pythagorean()
@@ -616,7 +730,7 @@ int endFunc()
 // Function to display error message
 void errorFunc()
 {
-	cout << "Error: Enter one of the choices correctly.";
+	cout << "\nError: Enter one of the choices correctly./n";
 }
 
 
