@@ -572,6 +572,14 @@ void trigratio()
 				<< "\tOpposite\n"
 				<< "Sin Θ = ---------\n"
 				<< "\tHypotenuse\n" << endl;
+
+			cout << "\nWhat are you trying to solve for?\n"
+				<< "1. Θ\n"
+				<< "2. Opposite\n"
+				<< "3. Hypotenuse\n\n"
+				<< "Enter your choice: ";
+			cin >> ;
+
 			break;
 		case '2':
 			cout << "\n\n\tCosine\n\n"
@@ -669,6 +677,7 @@ void trigratio()
 		break;
 	}
 }
+
 void pythagorean()
 {
 
