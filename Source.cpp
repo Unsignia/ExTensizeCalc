@@ -19,6 +19,9 @@ void refFunc();
 
 void identityFunc();
 void trigratio();
+void trig_ratio_solve();
+void trig_inverse_ratio_solve();
+
 void pythagorean();
 void oddeven();
 void cofunction(); 
@@ -572,13 +575,7 @@ void trigratio()
 				<< "\tOpposite\n"
 				<< "Sin Θ = ---------\n"
 				<< "\tHypotenuse\n" << endl;
-
-			cout << "\nWhat are you trying to solve for?\n"
-				<< "1. Θ\n"
-				<< "2. Opposite\n"
-				<< "3. Hypotenuse\n\n"
-				<< "Enter your choice: ";
-			cin >> ;
+			trig_ratio_solve();
 
 			break;
 		case '2':
@@ -595,6 +592,8 @@ void trigratio()
 				<< "\tAdjacent\n"
 				<< "Cos Θ = ---------\n"
 				<< "\tHypotenuse\n" << endl;
+			trig_ratio_solve();
+
 			break;
 		case '3':
 			cout << "\n\n\tTangent\n\n"
@@ -610,12 +609,14 @@ void trigratio()
 				<< "\tOpposite\n"
 				<< "Tan Θ = ---------\n"
 				<< "\tAdjacent\n" << endl;
+			trig_ratio_solve();
+
 			break;
 		default: errorFunc();
 			break;
 		}
-		
-	}		
+
+	}
 	else if (trigchoice == '2')
 	{
 		cout << "\n\tInverse Trig\n"
@@ -626,52 +627,150 @@ void trigratio()
 			<< "Enter your choice: ";
 		cin >> cscchoice;
 
-		switch(cscchoice)
+		switch (cscchoice)
 		{
-	case '1':
-		cout << "\n\n\tCosecant\n\n"
-			<< "|\\\n"
-			<< "| \\\n"
-			<< "|  \\\n"
-			<< "|   \\\n"
-			<< "|    \\\n"
-			<< "|     \\\n"
-			<< "|      \\\n"
-			<< "|_      \\\n"
-			<< "|_|____(Θ\\\n\n\n"
-			<< "\tHypotenuse\n"
-			<< "Csc Θ = ---------\n"
-			<< "\tOpposite\n" << endl;
+		case '1':
+			cout << "\n\n\tCosecant\n\n"
+				<< "|\\\n"
+				<< "| \\\n"
+				<< "|  \\\n"
+				<< "|   \\\n"
+				<< "|    \\\n"
+				<< "|     \\\n"
+				<< "|      \\\n"
+				<< "|_      \\\n"
+				<< "|_|____(Θ\\\n\n\n"
+				<< "\tHypotenuse\n"
+				<< "Csc Θ = ---------\n"
+				<< "\tOpposite\n" << endl;
+			break;
+		case '2':
+			cout << "\n\n\tSecant\n\n"
+				<< "|\\\n"
+				<< "| \\\n"
+				<< "|  \\\n"
+				<< "|   \\\n"
+				<< "|    \\\n"
+				<< "|     \\\n"
+				<< "|      \\\n"
+				<< "|_      \\\n"
+				<< "|_|____(Θ\\\n\n\n"
+				<< "\tHypotenuse\n"
+				<< "Sec Θ = ---------\n"
+				<< "\tAdjacent\n" << endl;
+			break;
+		case '3':
+			cout << "\n\n\tCotangent\n\n"
+				<< "|\\\n"
+				<< "| \\\n"
+				<< "|  \\\n"
+				<< "|   \\\n"
+				<< "|    \\\n"
+				<< "|     \\\n"
+				<< "|      \\\n"
+				<< "|_      \\\n"
+				<< "|_|____(Θ\\\n\n\n"
+				<< "\tAdjacent\n"
+				<< "Cot Θ = ---------\n"
+				<< "\tOpposite\n" << endl;
+			break;
+		default: errorFunc();
+			break;
+		}
+	}
+}
+
+void trig_ratio_solve()
+{
+	float opp = 0.0, hyp = 0.0, ang = 0.0;
+	char solve_for = ' ';
+
+	cout << "\nWhat are you trying to solve for?\n\n"
+		<< "1. Angle (Θ)\n"
+		<< "2. Opposite\n"
+		<< "3. Hypotenuse\n\n"
+		<< "Enter your choice: ";
+	cin >> solve_for;
+
+	switch (solve_for)
+	{
+	case '1': 
+		cout << "\nInput:\n"
+		<< "Opposite: ";
+		cin >> opp;
+		cout << "\nHypotenuse: ";
+		cin >> hyp;
+
+		ang = asin(opp / hyp);
+		cout << "\nThe Angle is " << ang << ".";
 		break;
 	case '2':
-		cout << "\n\n\tSecant\n\n"
-			<< "|\\\n"
-			<< "| \\\n"
-			<< "|  \\\n"
-			<< "|   \\\n"
-			<< "|    \\\n"
-			<< "|     \\\n"
-			<< "|      \\\n"
-			<< "|_      \\\n"
-			<< "|_|____(Θ\\\n\n\n"
-			<< "\tHypotenuse\n"
-			<< "Sec Θ = ---------\n"
-			<< "\tAdjacent\n" << endl;
+		cout << "\nInput:\n"
+			<< "Angle: ";
+		cin >> ang;
+		cout << "\nHypotenuse: ";
+		cin >> hyp;
+		
+		opp = sin(ang) * hyp;
+			cout << "\nThe Opposite side is " << opp << ".";
 		break;
 	case '3':
-		cout << "\n\n\tCotangent\n\n"
-			<< "|\\\n"
-			<< "| \\\n"
-			<< "|  \\\n"
-			<< "|   \\\n"
-			<< "|    \\\n"
-			<< "|     \\\n"
-			<< "|      \\\n"
-			<< "|_      \\\n"
-			<< "|_|____(Θ\\\n\n\n"
-			<< "\tAdjacent\n"
-			<< "Cot Θ = ---------\n"
-			<< "\tOpposite\n" << endl;
+		cout << "\nInput:\n"
+			<< "Angle: ";
+		cin >> ang;
+		cout << "\nOpposite: ";
+		cin >> opp;
+		
+		hyp = opp / sin(ang);
+		cout << "\nThe Hypotenuse is " << hyp << ".";
+		break;
+	default: errorFunc();
+		break;
+	}
+}
+void trig_inverse_ratio_solve()
+{
+	float opp = 0.0, hyp = 0.0, ang = 0.0;
+	char solve_for = ' ';
+
+	cout << "\nWhat are you trying to solve for?\n\n"
+		<< "1. Angle (Θ)\n"
+		<< "2. Opposite\n"
+		<< "3. Hypotenuse\n\n"
+		<< "Enter your choice: ";
+	cin >> solve_for;
+
+	switch (solve_for)
+	{
+	case '1':
+		cout << "\nInput:\n"
+			<< "Opposite: ";
+		cin >> opp;
+		cout << "\nHypotenuse: ";
+		cin >> hyp;
+
+		ang = asin(opp / hyp);
+		cout << "\nThe Angle is " << ang << ".";
+		break;
+	case '2':
+		cout << "\nInput:\n"
+			<< "Angle: ";
+		cin >> ang;
+		cout << "\nHypotenuse: ";
+		cin >> hyp;
+
+		opp = sin(ang) * hyp;
+		cout << "\nThe Opposite side is " << opp << ".";
+		break;
+	case '3':
+		cout << "\nInput:\n"
+			<< "Angle: ";
+		cin >> ang;
+		cout << "\nOpposite: ";
+		cin >> opp;
+
+		hyp = opp / sin(ang);
+		cout << "\nThe Hypotenuse is " << hyp << ".";
 		break;
 	default: errorFunc();
 		break;
