@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cmath>
 #include <string>
 using namespace std;
@@ -28,7 +28,6 @@ void cofunction();
 void angsumdiff();
 void hdtangle();
 void productsum();
-void ptolemy();
 
 
 void lawFunc();
@@ -512,8 +511,7 @@ void identityFunc()
 		<< "4. Cofunction\n"
 		<< "5. Angle Sum & Difference\n"
 		<< "6. Half/Double/Triple Angle\n"
-		<< "7. Product/Sum\n"
-		<< "8. Ptolemy's Theorem\n\n"
+		<< "7. Product/Sum\n\n"
 		<< "Enter your choice: ";
 	cin >> identitychoice;
 
@@ -533,13 +531,11 @@ void identityFunc()
 		break;
 	case '7': productsum();
 		break;
-	case '8': ptolemy();
-		break;
 	default: errorFunc();
 		break;
 	}
 }
-
+// Fix this
 void trigratio()
 {
 	char trigchoice = ' ', sctchoice = ' ', cscchoice = ' ';
@@ -679,7 +675,7 @@ void trigratio()
 		}
 	}
 }
-
+// Fix this 
 void trig_ratio_solve()
 {
 	float opp = 0.0, hyp = 0.0, ang = 0.0;
@@ -740,7 +736,7 @@ void trig_inverse_ratio_solve()
 		<< "Enter your choice: ";
 	cin >> solve_for;
 
-	switch (solve_for)
+	switch (solve_for) 
 	{
 	case '1':
 		cout << "\nInput:\n"
@@ -779,37 +775,100 @@ void trig_inverse_ratio_solve()
 
 void pythagorean()
 {
-
+	cout << "\n\nPythagorean Identities\n\n"
+		<< "sin²Θ + cos²Θ = 1\n"
+		<< "tan²Θ + 1 = sec²Θ\n"
+		<< "1 + cot²Θ = csc²Θ\n\n";
 }
 void oddeven()
 {
-
+	cout << "\n\nOdd/Even Identites\n\n"
+		<< "sin(-Θ) = -sin(Θ)\n"
+		<< "cos(-Θ) = cos(Θ)\n"
+		<< "tan(-Θ) = -tan(Θ)\n"
+		<< "csc(-Θ) = -csc(Θ)\n"
+		<< "sec(-Θ) = sec(Θ)\n"
+		<< "cot(-Θ) = -cot(Θ)\n\n";
 }
 void cofunction()
 {
-
+	cout << "\n\nCofunction Formulas\n\n"
+		<< "sin(π/2 - Θ) = cos(Θ)\n"
+		<< "csc(π/2 - Θ) = sec(Θ)\n"
+		<< "tan(π/2 - Θ) = cot(Θ)\n"
+		<< "cos(π/2 - Θ) = sin(Θ)\n"
+		<< "sec(π/2 - Θ) = csc(Θ)\n"
+		<< "cot(π/2 - Θ) = tan(Θ)\n\n";
 }
+
 void angsumdiff()
 {
-
+	cout << "\n\nSum and Difference Formulas\n\n"
+		<< "sin(α±ß) = sin(α)cos(ß) ± cos(α)sin(ß)\n"
+		<< "cos(α±ß) = cos(α)cos(ß) ± sin(α)sin(ß)\n"
+		<< "\ttan(α) ± tan(ß)\n"
+		<< "tan(α±ß) = ------------------\n"
+		<< "\t1 ± tan(α)tan(ß)\n\n";
 }
 void hdtangle()
 {
+	char hdtchoice = ' ';
 
+	cout << "\n\nHalf/Double/Triple Angle Formulas\n\n"
+		<< "1. Half Angle Formula\n"
+		<< "2. Double Angle Formula\n"
+		<< "3. Triple Angle Formula\n\n"
+		<< "Enter your choice: ";
+		cin >> hdtchoice;
+
+		switch (hdtchoice)
+		{
+		case '1': 
+			cout << "\t /  1 - cos Θ\n"
+				<< "sin -- = ± /---------\n"
+				<< "\t√     2\n\n";
+			cout << "\t /  1 + cos Θ\n"
+				<< "cos -- = ± /---------\n"
+				<< "\t√     2\n\n";
+			cout << "\t /  1 - cos Θ\n"
+				<< "tan -- = ± /---------\n"
+				<< "\t√     1 + cos Θ\n\n";
+			break;
+		case '2':
+			cout << "sin 2Θ = 2 sinΘcosΘ\n"
+				<< "cos 2Θ = cos²Θ - sin²Θ\n"
+				<< "       = 2 cos²Θ - 1\n"
+				<< "       = 1 - 2 sin²Θ\n"
+				<< "\t2tanΘ\n"
+				<< "tan 2Θ = ---------\n"
+				<< "\t1 - tan²Θ\n\n";
+			break;
+		case '3':
+			cout << "sin 3Θ = 3sinΘ - 4sin³Θ\n"
+				<< "cos 3Θ = 4cos³Θ - 3cosΘ\n"
+				<< "\t3 tan Θ - tan³Θ"
+				<< "tan 3Θ = ---------------\n"
+				<< "\t1 - 3 tan²Θ\n\n";
+			break;
+		default: errorFunc();
+			break;
+
+		}
 }
 void productsum() 
 {
-
+	cout << "\n\nProduct to Sum Formulas\n\n"
+		<< "sin(α)sin(ß) = (1/2)[cos(α - ß) - cos(α + ß)]\n"
+		<< "cos(α)cos(ß) = (1/2)[cos(α - ß) + cos(α + ß)]\n" 
+		<< "sin(α)cos(ß) = (1/2)[sin(α + ß) + sin(α - ß)]\n"
+		<< "cos(α)sin(ß) = (1/2)[sin(α + ß) - sin(α - ß)]\n";
 }
-void ptolemy()
-{
-
-}
-
 
 
 void lawFunc()
 {
+	cout << "\n\nLaw of Sine/Cosine Formulas\n\n"
+		<< ""
 
 }
 
