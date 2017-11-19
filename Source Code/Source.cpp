@@ -10,7 +10,6 @@ void additionFunc();
 void subtractionFunc();
 void multiplicationFunc();
 void divisionFunc();
-
 // Trig Function Prototypes
 void angleFunc();
 void angCompute();
@@ -29,12 +28,8 @@ void angsumdiff();
 void hdtangle();
 void productsum();
 
-
 void lawFunc();
 void polarFunc();
-void formFunc();
-void arcFunc();
-
 
 int endFunc();
 void errorFunc();
@@ -53,7 +48,7 @@ int main()
 
 char showMenu()
 {
-	char choice1 = '0';
+	char choice1 = ' ';
 	char ALGEBRA_CHOICE = '1',
 		TRIGONOMETRY_CHOICE = '2',
 		GEOMETRY_CHOICE = '3',
@@ -71,7 +66,7 @@ char showMenu()
 
 	if (choice1 == ALGEBRA_CHOICE)
 	{
-		char choice2 = '0';
+		char choice2 = ' ';
 		char ADDITION_CHOICE = '1',
 			SUBTRACTION_CHOICE = '2',
 			MULTIPLICATION_CHOICE = '3',
@@ -113,8 +108,6 @@ char showMenu()
 			IDENTITY_CHOICE = '3',
 			LAW_CHOICE = '4',
 			POLAR_CHOICE = '5',
-			ARC_CHOICE = '6',
-			FORM_CHOICE = 'F',
 			QUIT_CHOICE = 'Q';
 
 		// TODO compress the categories w/ descriptions
@@ -125,9 +118,7 @@ char showMenu()
 			<< "2. Reference/Coterminal Angles\n"
 			<< "3. Trigonometric Identities\n" 
 			<< "4. Law of Sines/Law of Cosines/Law of Tangents\n"
-			<< "5. Polar Equations\n"
-			<< "6. Arc/Sectors\n"
-			<< "F. Formula List\n\n" // Is this needed?
+			<< "5. Polar Coordinates\n"
 			<< "Q. Quit the Program\n\n"
 			<< "Enter your choice: ";
 		cin >> choice3;
@@ -145,17 +136,25 @@ char showMenu()
 			break;
 		case '5': polarFunc();
 			break;
-		case '6': arcFunc();
-			break;
-		case 'F': formFunc();
-			break;
 		case 'Q': endFunc();
 			break;
 		default: errorFunc();
 			break;
 	}
 	}
-	
+	else if (choice1 == GEOMETRY_CHOICE)
+	{
+		char choice3 = ' ';
+		char D_CHOICE = '1',
+			S_CHOICE = '2';
+
+		cout << "\n\t\tGEOMETRY Menu\n\n"
+			<< "1. \n"
+			<< "2. \n"
+			<< "Enter your choice: ";
+		cin >> choice3;
+	}
+
 	else;
 	return choice1;
 }
@@ -539,7 +538,8 @@ void identityFunc()
 void trigratio()
 {
 	char trigchoice = ' ', sctchoice = ' ', cscchoice = ' ';
-	cout << "\n\tTrigonomtric Ratios\n\n"
+	cout << "\n\tTrigonomtric Ratios\n"
+		<< "Angles must be in degrees\n\n"
 		<< "1. SOHCAHTOA\n"
 		<< "2. Reciprocal Identities\n\n"
 		<< "Enter your choice: ";
@@ -681,6 +681,8 @@ void trig_ratio_solve()
 	float opp = 0.0, hyp = 0.0, ang = 0.0;
 	char solve_for = ' ';
 
+	ang = ang * (pi / 180); // Degrees to Radians
+
 	cout << "\nWhat are you trying to solve for?\n\n"
 		<< "1. Angle (Θ)\n"
 		<< "2. Opposite\n"
@@ -728,6 +730,8 @@ void trig_inverse_ratio_solve()
 {
 	float opp = 0.0, hyp = 0.0, ang = 0.0;
 	char solve_for = ' ';
+
+	ang = ang * (pi / 180); // Degrees to Radians
 
 	cout << "\nWhat are you trying to solve for?\n\n"
 		<< "1. Angle (Θ)\n"
@@ -863,29 +867,105 @@ void productsum()
 		<< "sin(α)cos(ß) = (1/2)[sin(α + ß) + sin(α - ß)]\n"
 		<< "cos(α)sin(ß) = (1/2)[sin(α + ß) - sin(α - ß)]\n";
 }
-
-
 void lawFunc()
 {
-	cout << "\n\nLaw of Sine/Cosine Formulas\n\n"
-		<< ""
+	char lawchoice = ' ';
 
+	cout << "\n\nLaw of Sine/Cosine Formulas\n\n"
+		<< "1. Law of Sines\n"
+		<< "2. Law of Cosines\n"
+		<< "3. Law of Tangents\n\n"
+		<< "Enter your choice: ";
+	cin >> lawchoice;
+
+	if (lawchoice == '1')
+	{
+		cout << "\n\nLaw of Sines\n\n"
+			<< "sinα   sinß   sinΓ\n"
+			<< "---- = ---- = ----\n"
+			<< " a      b      c\n\n";
+	}
+	else if (lawchoice == '2')
+	{
+		cout << "\n\nLaw of Cosines\n\n"
+			<< "a² = b² + c² - 2bc cosα\n"
+			<< "b² = a² + c² - 2ac cosß\n"
+			<< "c² = a² + b² - 2ab cosΓ\n";
+	}
+	else if (lawchoice == '3')
+	{
+		cout << "\n\nLaw of Tangents\n\n"
+			<< "a - b    tan½(α - ß)\n"
+			<< "-----  = -----------\n"
+			<< "a + b    tan½(α + ß)\n\n"
+			<< "b - c    tan½(ß - Γ)\n"
+			<< "-----  = -----------\n"
+			<< "b + c    tan½(ß + Γ)\n\n"			
+			<< "a - c    tan½(α - Γ)\n"
+			<< "-----  = -----------\n"
+			<< "a + c    tan½(α + Γ)\n\n";
+	}
+	else { errorFunc(); }
 }
 
 void polarFunc()
 {
+	char polarchoice;
+	float x, y, ang, r;
+	ang = ang * (pi / 180); // Degrees to Radians
 
+	cout << "\n\nPolar Coordinates\n"
+		<< "Angles must be in degrees\n\n" // TODO Create an angles in degree function
+		<< "1. Rectangular to Polar\n"
+		<< "2. Polar to Rectangular\n\n"
+		<< "Enter your choice: ";
+	cin >> polarchoice;
+
+	if (polarchoice == '1')
+	{
+		cout << "\n\nRectanglar to Polar\n"
+			<< "Angles must be in degrees\n\n"
+			<< "r = √(x²+y²)\n"
+			<< "Θ = arctan(y/x)\n"
+			<< "-------------------\n\n"
+			<< "Enter the values:\n"
+			<< "x = ";
+		cin >> x;
+		cout << "\ny = ";
+		cin >> y;
+
+		r = sqrt(pow(x, 2) + pow(y, 2));
+		ang = atan(y / x);
+
+		cout << "\n\n-------------------\n\n"
+			<< "r = " << r << endl
+			<< "Θ = " << ang << endl;
+	}
+	else if (polarchoice == '2')
+	{
+		cout << "\n\nPolar to Rectanglar\n"
+			<< "Angles must be in degrees\n\n"
+			<< "x = r cos(Θ)\n"
+			<< "y = r sin(Θ)\n"
+			<< "r² = x² + y²\n"
+			<< "tan(Θ) = y/x\n"
+			<< "-------------------\n\n"
+			<< "Enter the values:\n"
+			<< "r = ";
+		cin >> r;
+		cout << "\nΘ = ";
+		cin >> ang;
+		
+		x = r * cos(ang);
+		y = r * sin(ang);
+
+		cout << "\n\n-------------------\n\n"
+			<< "x = " << x << endl
+			<< "y = " << y << endl;
+	}
+	else { errorFunc(); }
 }
 
-void arcFunc()
-{
-
-}
-
-void formFunc()
-{
-
-}
 
 
  // Function to end program
@@ -893,7 +973,6 @@ int endFunc()
 {
 	return 0;
 }
-
 // Function to display error message
 void errorFunc()
 {
