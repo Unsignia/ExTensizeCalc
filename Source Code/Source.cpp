@@ -15,21 +15,30 @@ void angleFunc();
 void angCompute();
 void angConvert();
 void refFunc();
-
 void identityFunc();
 void trigratio();
 void trig_ratio_solve();
 void trig_inverse_ratio_solve();
-
 void pythagorean();
 void oddeven();
 void cofunction(); 
 void angsumdiff();
 void hdtangle();
 void productsum();
-
 void lawFunc();
 void polarFunc();
+//Geometry Function Prototypes
+void area2dFunc();
+void area3dFunc();
+void circleFunc();
+void transFunc();
+void seqFunc();
+void quadFunc();
+void coorFunc();
+void expFunc();
+void vectorFunc();
+void measureFunc();
+
 
 int endFunc();
 void errorFunc();
@@ -44,7 +53,6 @@ int main()
 
 	return 0;
 }
-
 
 char showMenu()
 {
@@ -93,7 +101,8 @@ char showMenu()
 			break;
 		case '4': divisionFunc();
 			break;
-		case 'Q': endFunc();
+		case 'Q': 
+		case 'q': endFunc();
 			break;
 		default: cout << "Error: Enter one of the choices correctly.";
 			break;
@@ -101,8 +110,7 @@ char showMenu()
 	}
 	else if (choice1 == TRIGONOMETRY_CHOICE)
 	{
-		char choice3 = '0';
-
+		char choice3 = ' ';
 		char ANGLE_CHOICE = '1',
 			REF_CHOICE = '2',
 			IDENTITY_CHOICE = '3',
@@ -136,7 +144,8 @@ char showMenu()
 			break;
 		case '5': polarFunc();
 			break;
-		case 'Q': endFunc();
+		case 'Q': 
+		case 'q': endFunc();
 			break;
 		default: errorFunc();
 			break;
@@ -145,14 +154,61 @@ char showMenu()
 	else if (choice1 == GEOMETRY_CHOICE)
 	{
 		char choice3 = ' ';
-		char D_CHOICE = '1',
-			S_CHOICE = '2';
+		char AREA_2D_CHOICE = '1',
+			AREA_3D_CHOICE = '2',
+			CIRCLE_CHOICE = '3',
+			TRANSF_CHOICE = '4',
+			SEQ_CHOICE = '5',
+			QUADEQ_CHOICE = '6',
+			COOR_CHOICE = '7',
+			EXP_CHOICE = '8',
+			VECTOR_CHOICE = '9',
+			MEASURE_CHOICE = '0',
+			QUIT_CHOICE = 'Q';
 
 		cout << "\n\t\tGEOMETRY Menu\n\n"
-			<< "1. \n"
-			<< "2. \n"
+			<< "1. Perimeter/Area for 2D Shapes\n"
+			<< "2. Volume/Area for 3D Shapes\n"
+			<< "3. All about Circles\n"
+			<< "4. Transformations\n"
+			<< "5. Sequences\n"
+			<< "6. Quadratic Equation\n"
+			<< "7. Coordinate Geometry\n"
+			<< "8. Exponential Growth/Decay\n"
+			<< "9. Vectors\n"
+			<< "0. Measurements\n\n"
+			<< "Q. Quit the Program\n\n"
 			<< "Enter your choice: ";
 		cin >> choice3;
+
+		switch (choice3)
+		{
+		case '1':area2dFunc();
+			break;
+		case '2':area3dFunc();
+			break;
+		case '3':circleFunc();
+			break;
+		case '4':transFunc();
+			break;
+		case '5':seqFunc();
+			break;
+		case '6':quadFunc();
+			break;
+		case '7':coorFunc();
+			break;
+		case '8':expFunc();
+			break;
+		case '9':vectorFunc();
+			break;
+		case '0':measureFunc();
+			break;
+		case 'Q':
+		case 'q': endFunc();
+			break; 
+		default:
+			break;
+		}
 	}
 
 	else;
@@ -319,7 +375,7 @@ void divisionFunc()
 
 
 // Functions for TRIGONOMETRY
-	// Angle Functions
+		// Angle Functions
 void angleFunc()
 {
 	char anglechoice = '0';
@@ -342,7 +398,6 @@ void angleFunc()
 	}
 
 }
-
 void angCompute()
 {
 	float degrees = 0.0;
@@ -498,7 +553,7 @@ void refFunc()
 		}
 }
 
-	// Identity Functions
+		// Identity Functions
 void identityFunc()
 {
 	char identitychoice = ' ';
@@ -776,7 +831,6 @@ void trig_inverse_ratio_solve()
 		break;
 	}
 }
-
 void pythagorean()
 {
 	cout << "\n\nPythagorean Identities\n\n"
@@ -804,7 +858,6 @@ void cofunction()
 		<< "sec(π/2 - Θ) = csc(Θ)\n"
 		<< "cot(π/2 - Θ) = tan(Θ)\n\n";
 }
-
 void angsumdiff()
 {
 	cout << "\n\nSum and Difference Formulas\n\n"
@@ -907,7 +960,6 @@ void lawFunc()
 	}
 	else { errorFunc(); }
 }
-
 void polarFunc()
 {
 	char polarchoice;
@@ -966,6 +1018,47 @@ void polarFunc()
 	else { errorFunc(); }
 }
 
+		// Geometry Functions
+void area2dFunc() 
+{
+
+}
+void area3dFunc()
+{
+
+}
+void circleFunc()
+{
+
+}
+void transFunc()
+{
+
+}
+void seqFunc()
+{
+
+}
+void quadFunc()
+{
+
+}
+void coorFunc()
+{
+
+}
+void expFunc()
+{
+
+}
+void vectorFunc()
+{
+
+}
+void measureFunc()
+{
+
+}
 
 
  // Function to end program
