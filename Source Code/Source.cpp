@@ -1,6 +1,11 @@
 #include <iostream>
+#include <stdlib.h>
+#include <wchar.h> // For Unicode
 #include <cmath>
 #include <string>
+
+#pragma execution_character_set("utf-8") // Allows for UTF usage
+
 using namespace std;
 
 void PrintIntro();
@@ -81,6 +86,8 @@ char showMenu()
 			DIVISION_CHOICE = '4',
 			QUIT_CHOICE = 'Q';
 
+		system("CLS"); // Clears the Previous Screen
+
 		cout << "\n\t\tALGEBRA Menu\n\n"
 			<< "1. Addition\n"
 			<< "2. Subtraction\n"
@@ -118,7 +125,8 @@ char showMenu()
 			POLAR_CHOICE = '5',
 			QUIT_CHOICE = 'Q';
 
-		// TODO compress the categories w/ descriptions
+		system("CLS"); // TODO Use this in all presented functions
+
 		cout << "\n\t\tTRIGONOMETRY Menu\n"
 			<< "\tThere is NO graphing in this program.\n"
 			<< "\t\tANGLES ARE IN DEGREES\n\n"
@@ -166,6 +174,8 @@ char showMenu()
 			MEASURE_CHOICE = '0',
 			QUIT_CHOICE = 'Q';
 
+		system("CLS");
+
 		cout << "\n\t\tGEOMETRY Menu\n\n"
 			<< "1. Perimeter/Area for 2D Shapes\n"
 			<< "2. Volume/Area for 3D Shapes\n"
@@ -210,7 +220,10 @@ char showMenu()
 			break;
 		}
 	}
+	else if (choice1 == CALCULUS_CHOICE)
+	{
 
+	}
 	else;
 	return choice1;
 }
@@ -221,7 +234,6 @@ void PrintIntro()
 		<< "\tThis program can accept up to 3 input\n" 
 		<< "\tfrom the user for each operation.\n\n\n";
 }
- 
 
 // Functions for ALGEBRA
 void additionFunc()
@@ -456,7 +468,7 @@ void angCompute()
 }
 void angConvert()
 {
-	float rads = 0.0, radstodegs = 0.0, degs = 0.0, degstorads = 0.0;
+	double rads = 0.0, radstodegs = 0.0, degs = 0.0, degstorads = 0.0;
 	char convchoice = ' ';
 
 	cout << "\t\n\nCONVERT ANGLES\n\n"
@@ -540,7 +552,7 @@ void refFunc()
 
 			cout << "\nCoterminal Angles: ";
 
-			for (int count = 0; count <= 2; count++)
+			for (int count = 0; count <= 2; count++) // TODO add error 
 			{
 				refang = angle + 360;
 				cout << refang << " ";
@@ -733,7 +745,7 @@ void trigratio()
 // Fix this 
 void trig_ratio_solve()
 {
-	float opp = 0.0, hyp = 0.0, ang = 0.0;
+	double opp = 0.0, hyp = 0.0, ang = 0.0;
 	char solve_for = ' ';
 
 	ang = ang * (pi / 180); // Degrees to Radians
@@ -783,7 +795,7 @@ void trig_ratio_solve()
 }
 void trig_inverse_ratio_solve()
 {
-	float opp = 0.0, hyp = 0.0, ang = 0.0;
+	double opp = 0.0, hyp = 0.0, ang = 0.0;
 	char solve_for = ' ';
 
 	ang = ang * (pi / 180); // Degrees to Radians
@@ -963,7 +975,7 @@ void lawFunc()
 void polarFunc()
 {
 	char polarchoice;
-	float x, y, ang, r;
+	double x = 0.0, y = 0.0, ang = 0.0, r = 0.0;
 	ang = ang * (pi / 180); // Degrees to Radians
 
 	cout << "\n\nPolar Coordinates\n"
