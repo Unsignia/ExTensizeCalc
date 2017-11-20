@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stdlib.h>
-#include <wchar.h> // For Unicode
 #include <cmath>
 #include <string>
 
