@@ -4,7 +4,6 @@
 #include <string>
 
 #pragma execution_character_set("utf-8") // Allows for UTF usage
-
 using namespace std;
 
 void PrintIntro();
@@ -31,7 +30,7 @@ void hdtangle();
 void productsum();
 void lawFunc();
 void polarFunc();
-//Geometry Function Prototypes
+// Geometry Function Prototypes
 void area2dFunc();
 void area3dFunc();
 void circleFunc();
@@ -42,7 +41,13 @@ void coorFunc();
 void expFunc();
 void vectorFunc();
 void measureFunc();
-
+void triangle2d();
+void rect2d();
+void parallel2d();
+void trape2d();
+void circle2d();
+void ellipse2d();
+// Calculus Function Prototypes
 
 int endFunc();
 void errorFunc();
@@ -223,7 +228,8 @@ char showMenu()
 	{
 
 	}
-	else;
+	else if (choice1 == QUIT_CHOICE) { endFunc(); }
+	else { errorFunc(); };
 	return choice1;
 }
 
@@ -1032,8 +1038,267 @@ void polarFunc()
 		// Geometry Functions
 void area2dFunc() 
 {
+	char area2dchoice = ' ';
 
+	cout << "\n\nPERIMETER & AREA OF 2D SHAPES Menu\n\n"
+		<< "1. Triangle\n"
+		<< "2. Rectangle + Square\n"
+		<< "3. Parallelogram\n"
+		<< "4. Trapezoid\n"
+		<< "5. Circle\n"
+		<< "6. Ellipse\n\n"
+		<< "Enter your choice: ";
+	cin >> area2dchoice;
+
+	switch (area2dchoice)
+	{
+	case '1':triangle2d();
+		break;
+	case '2':rect2d();
+		break;
+	case '3':parallel2d();
+		break;
+	case '4':trape2d();
+		break;
+	case '5':circle2d();
+		break;
+	case '6':ellipse2d();
+		break;
+	default: errorFunc();
+		break;
+	}
 }
+
+void triangle2d()
+{
+	double a = 0.0, b = 0.0, c = 0.0, s = 0.0, harea = 0.0, area = 0.0, perimeter = 0.0;
+	s = (a + b + c) / 2;
+	harea = sqrt(s*(s - a)*(s - b)*(s - c));
+	area = 0.5 * a * b;
+	perimeter = a + b + c;
+
+	char trichoice = ' ';
+
+	cout << "\n\nTRIANGLE Menu\n\n"
+		<< "1. Area\n"
+		<< "2. Heron's Formula\n"
+		<< "3. Perimeter\n\n"
+		<< "Enter your choice: ";
+		cin >> trichoice;
+
+		switch (trichoice)
+		{
+		case '1': 
+			cout << "Area of Triangle\n\n"
+				<< " |\\\n"
+				<< " | \\\n"
+				<< "h|  \\\n"
+				<< "e|   \\\n"
+				<< "i|    \\\n"
+				<< "g|     \\\n"
+				<< "h|      \\\n"
+				<< "t|_      \\\n"
+				<< " |_|______\\\n\n\n"
+				<< "    base\n\n\n"
+				<< "Area = ½bh\n\n"
+				<< "Input:\n"
+				<< "Base: ";
+			cin >> a;
+			cout << "\nHeight: ";
+			cin >> b;
+			cout << "\n\nArea = " << area << endl;
+			break;
+		case '2': 
+			cout << "\n\nHeron's Formula\n\n"
+				<< "  	 /\\n"
+				<< "    /  \\n"
+				<< " A /    \\ B\n"
+				<< "  /      \\n"
+				<< " /________\\n"
+				<< "      C\n\n\n"
+				<< "       A + B + C\n"
+				<< "S  =  ----------- ; where A, B, C are the sides of the triangle.\n"
+				<< "           2\n\n"
+				<< "Area = √(S(S - A)(S - B)(S - C))\n\n"
+				<< "Input:\n"
+				<< "A: ";
+			cin >> a;
+			cout << "\nB: ";
+			cin >> b;
+			cout << "\nC: ";
+			cin >> c;
+			cout << "\n\nArea = " << harea << endl;
+			break;
+		case '3':
+			cout << "\nPerimeter\n\n"
+				<< "  	 /\\n"
+				<< "    /  \\n"
+				<< " A /    \\ B\n"
+				<< "  /      \\n"
+				<< " /________\\n"
+				<< "      C\n\n\n"
+				<< "Perimeter = A + B + C\n\n"
+				<< "Input:\n"
+				<< "A: ";
+			cin >> a;
+			cout << "B: ";
+			cin >> b;
+			cout << "C: ";
+			cin >> c;
+			cout << "\n\nPerimeter = " << perimeter << endl;
+			break;
+		default: errorFunc();
+			break;
+		}
+}
+void rect2d()
+{
+	double a = 0.0, b = 0.0;
+	char rectchoice = ' ';
+
+	cout << "\n\nRECTANGLE + SQUARE Menu\n\n"
+		<< "1. Rectangle\n"
+		<< "2. Square\n"
+		<< "Enter your choice: ";
+	cin >> rectchoice;
+
+	if (rectchoice == '1')
+	{
+		cout << "\n\nPerimeter + Area of Rectangle\n\n"
+			<< " __________\n"
+			<< "|          |\n"
+			<< "|          |\n"
+			<< "|__________|\n\n"
+			<< "Area = Length * Width\n"
+			<< "Perimeter = 2 * (Length + Width)\n\n"
+			<< "What is the length of a side?: ";
+		cin >> a;
+		cout << "\nOther side?: ";
+		cin >> b;
+		cout << "\n\nArea = " << a * b << endl;
+		cout << "Perimeter = " << 2 * (a + b) << endl;
+	}
+	else if (rectchoice == '2')
+	{
+		cout << "\n\nPerimeter + Area of Square\n\n"
+			<< " ______\n"
+			<< "|      |\n"
+			<< "|      |\n"
+			<< "|______|\n\n"
+			<< "Area = Length * 2\n"
+			<< "Perimeter = Length * 4\n\n"
+			<< "What is the length of the side?: ";
+		cin >> a;
+		cout << "\n\nArea = " << a * a << endl;
+		cout << "Perimeter = " << a * 4 << endl;
+	}
+	else { errorFunc(); }
+}
+void parallel2d()
+{
+	double h = 0.0, b = 0.0, s = 0.0, area = 0.0, perimeter = 0.0;
+	area = b * h;
+	perimeter = 2 * (s + b);
+
+	cout << "\n\nPARALLELOGRAM Menu\n\n"
+		<< "     ______________\n"
+		<< "    /|            /\n"
+		<< " s / |h          /\n"
+		<< "  /__|__________/\n"
+		<< "       b\n\n\n"
+		<< "Area = b * h\n"
+		<< "Perimeter = 2 * (s + b)\n\n"
+		<< "What is the height(h)?: ";
+	cin >> h;
+	cout << "\nBase(b): ";
+	cin >> b;
+	cout << "\nSide(s): ";
+	cin >> s;
+	cout << "Area = " << area << endl
+		<< "Perimeter = " << perimeter << endl;
+}
+void trape2d() 
+{
+	double h = 0.0, b1 = 0.0, b2 = 0.0, s1 = 0.0, s2 = 0.0, area = 0.0, 
+		perimeter = 0.0, perimeter2 = 0.0, ang1 = 0.0, ang2 = 0.0;
+	area = 0.5 * h * (b1 + b2);
+	perimeter = s1 + s2 + b1 + b2;
+	perimeter2 = b1 + b2 + h * (asin(ang1) + asin(ang2));
+
+	char useangles = ' ';
+
+	cout << "\n\nTRAPEZOID Menu\n\n"
+		<< "     ____b1___\n"
+		<< "    /|        \\\n"
+		<< "s1 / |h        \\s2\n"
+		<< "  /ß_|_________Θ\\\n"
+		<< "         b2\n\n\n"
+		<< "Area = ½ h *(b1 + b2)\n"
+		<< "Perimeter = s1 + s2 + b1 + b2\n"
+		<< "          = b1 + b2 + h * [csc(Θ) + csc(ß)]\n\n"
+		<< "What is the height(h)?: ";
+	cin >> h;
+	cout << "\nBase 1(b1): ";
+	cin >> b1;
+	cout << "\nBase 2(b2): ";
+	cin >> b2;
+	cout << "\nSide 1(s1): ";
+	cin >> s1;
+	cout << "\nSide 2(s2): ";
+	cin >> s2;
+	cout << "\nDo you want to use the angles?(Y/N): ";
+	cin >> useangles;
+	if (useangles == 'Y' || useangles == 'y') 
+	{
+		cout << "Angle 1(Θ): ";
+		cin >> ang1;
+		cout << "Angle 2(ß): ";
+		cin >> ang2;
+		cout << "\n\nPerimeter = " << perimeter2 << endl;
+	}	
+	else if (useangles == 'N' || useangles == 'n')
+	{
+		cout << "Perimeter = " << perimeter << endl;
+	}
+	else { errorFunc(); }
+
+	cout << "Area = " << area << endl;
+}
+void circle2d()
+{
+	double radius = 0.0, area = 0.0, circumference = 0.0;
+	char circlechoice = ' ';
+
+	cout << "\n\nCIRCLE Menu\n\n"
+		<< "\n\nArea + Circumference\n\n"
+		<< "A = π * r²\n\n"
+		<< "Input:\n"
+		<< "Radius: ";
+	cin >> radius;
+	cout << "\nArea = " << area << endl
+		<< "Circumference = " << circumference << endl;
+}
+void ellipse2d() 
+{
+	double r1 = 0.0, r2 = 0.0, area = 0.0, circumference = 0.0;
+	area = pi * r1 * r2;
+	circumference = 4 * (r1 + r2) * (pi / 4);
+
+	cout << "\n\nELLIPSE Menu\n\n"
+		<<"r1 is the short axis. r2 is the long axis.\n\n"
+		<< "Area = π * r1 * r2\n"
+		<< "Circumference = 4 * (r1 + r2) * (π / 4)\n\n\n"
+		//"Circumference = π * √2 * ((½ * r1)²+(½ * r2)²)\n\n\n"
+		<< "Input:\n"
+		<< "r1: ";
+	cin >> r1;
+	cout << "\nr2: ";
+	cin >> r2;
+	cout << "\n\nArea = " << area << endl
+		<< "Circumference = " << circumference << endl;
+}
+
+
 void area3dFunc()
 {
 
