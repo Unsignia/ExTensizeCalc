@@ -47,6 +47,22 @@ void parallel2d();
 void trape2d();
 void circle2d();
 void ellipse2d();
+void rectprism3d();
+void cylinder3d();
+void pyramid3d();
+void cone3d();
+void sphere3d();
+void cube3d();
+void torus3d();
+void ellipsoid3d();
+void arcmeasure();
+void sectorarea();
+void circeq();
+
+void rotate();
+void translate();
+void reflect();
+void dilation();
 // Calculus Function Prototypes
 
 int endFunc();
@@ -1267,6 +1283,9 @@ void trape2d()
 void circle2d()
 {
 	double radius = 0.0, area = 0.0, circumference = 0.0;
+	area = pi * pow(radius, 2);
+	circumference = 2 * pi * radius;
+
 	char circlechoice = ' ';
 
 	cout << "\n\nCIRCLE Menu\n\n"
@@ -1297,20 +1316,336 @@ void ellipse2d()
 	cout << "\n\nArea = " << area << endl
 		<< "Circumference = " << circumference << endl;
 }
-
-
 void area3dFunc()
 {
+	char area3dchoice = ' ';
 
+	cout << "\n\nVOLUME & SURFACE AREA OF 3D SHAPES Menu\n\n"
+		<< "1. Rectangular Prisms\n" //TODO Maybe include General Prisms
+		<< "2. Cylinders\n"
+		<< "3. Pyramids\n"
+		<< "4. Cones\n"
+		<< "5. Spheres\n"
+		<< "6. Cubes\n"
+		<< "7. Torus\n"
+		<< "8. Ellipsoid\n\n"
+		<< "Enter your choice: ";
+	cin >> area3dchoice;
+
+	switch (area3dchoice)
+	{
+	case '1': rectprism3d();
+		break;
+	case '2': cylinder3d();
+		break;
+	case '3': pyramid3d();
+		break;
+	case '4': cone3d();
+		break;
+	case '5': sphere3d();
+		break;
+	case '6': cube3d();
+		break;
+	case '7': torus3d();
+		break;
+	case '8': ellipsoid3d();
+		break;
+	default: errorFunc();
+		break;
+	}
 }
+void rectprism3d()
+{
+	double l = 0.0, w = 0.0, h = 0.0, sa = 0.0, volume = 0.0;
+	volume = l * w * h;
+	sa = 2 * l * w + 2 * h * w + 2 * l * h;
+
+	cout << "\n\nRECTANGULAR PRISM Menu\n\n"
+		<< "Volume = l*w*h\n"
+		<< "Surface Area = 2*l*w +2*h*w +2*l*h\n\n"
+		<< "Input:\n\n"
+		<< "L: ";
+	cin >> l;
+	cout << "\nW: ";
+	cin >> w;
+	cout << "\nH: ";
+	cin >> h;
+	cout << "\n\nV = " << volume << endl
+		<< "SA = " << sa << endl;
+}
+void cylinder3d()
+{
+	double r = 0.0, h = 0.0, C = 0.0, B = 0.0, sa = 0.0, volume = 0.0;
+	B = pi * pow(r, 2);
+	C = 2 * pi * r;
+	volume = B * h;
+	sa = 2 * B + C * h;
+
+	char cylinderchoice = ' ';
+
+	cout << "\n\nCYLINDER Menu\n\n"
+		<< "Volume = Base * Height\n"
+		<< "Surface Area = 2 * Base + Circumference * Height\n\n\n"
+		<< "Input:\n\n"
+		<< "Radius: ";
+	cin >> r;
+	cout << "\nHeight: ";
+	cin >> h;
+	cout << "\n\nV = " << volume << endl
+		<< "SA = " << sa << endl;
+}
+void pyramid3d()
+{
+	double r = 0.0, h = 0.0, sh = 0.0,sa = 0.0, volume = 0.0;
+	volume = (1 / 3) * pi * pow(r , 2) * h;
+	sa = pi * pow(r , 2) + (1 / 2) * (2 * pi * r) * sh;
+
+	cout << "\n\nPYRAMID Menu\n\n"
+		<< "         1\n"
+		<< "Volume = - * Base * Height\n"
+		<< "         3\n"
+		<< "Surface Area = Base + ½ * Perimeter * Slant Height\n\n"
+		<< "Input:\n\n"
+		<< "Radius: ";
+	cin >> r;
+	cout << "\nSlant Height: ";
+	cin >> sh;
+	cout << "\nHeight: ";
+	cin >> h;
+	cout << "\n\nV = " << volume << endl
+		<< "SA = " << sa << endl;
+}
+void cone3d() 
+{
+	double r = 0.0, h = 0.0, sh = 0.0, sa = 0.0, volume = 0.0;
+	volume = (1 / 3) * pi * pow(r, 2) * h;
+	sa = pi * pow(r, 2) + (1 / 2) * (2 * pi * r) * sh;
+
+	cout << "\n\nCONE Menu\n\n"
+		<< "         1\n"
+		<< "Volume = - * Base * Height\n"
+		<< "         3\n"
+		<< "Surface Area = Base + ½ * Circumference * Slant Height\n\n"
+		<< "Input:\n\n"
+		<< "Radius: ";
+	cin >> r;
+	cout << "\nSlant Height: ";
+	cin >> sh;
+	cout << "\nHeight: ";
+	cin >> h;
+	cout << "\n\nV = " << volume << endl
+		<< "SA = " << sa << endl;
+}
+void sphere3d()
+{
+	double r = 0.0, volume = 0.0, sa = 0.0;
+	volume = (4 / 3) * pi * pow(r, 3);
+	sa = 4 * pi * pow(r, 2);
+
+	cout << "\n\nSPHERE Menu\n\n"
+		<< "         4\n"
+		<< "Volume = -  * π * r³\n"
+		<< "         3\n"
+		<< "SA = 4 * π * r²\n\n"
+		<< "Input:\n\n"
+		<< "Radius: ";
+	cin >> r;
+	cout << "\n\nVolume = " << volume << endl
+		<< "Surface Area = " << sa << endl;
+}
+void cube3d()
+{
+	double s = 0.0, volume = 0.0, sa = 0.0;
+	volume = pow(s, 3);
+	sa = 6 * pow(s, 2);
+
+	cout << "\n\nCUBE Menu\n\n"
+		<< "Volume = s³\n"
+		<< "Surface Area = 6 * s²\n\n"
+		<< "Input:\n\n"
+		<< "Side: ";
+	cin >> s;
+	cout << "\n\nVolume = " << volume << endl
+		<< "\nSurface Area = " << sa << endl;
+}
+void torus3d()
+{
+	double r = 0.0, R = 0.0, volume = 0.0, sa = 0.0;
+	volume = 2 * pow(pi,2) * pow(r, 2) * R;
+	sa =  4 * pow(pi, 2) * R * r;
+
+	cout << "\n\nTORUS Menu\n\n"
+		<< "Volume = (2 * π²) * (Major Radius) * (Minor Radius)²)\n"
+		<< "Surface Area = 4 * π² * (Major Radius) * (Minor Radius)\n\n"
+		<< "Input:\n\n"
+		<< "Minor Radius: ";
+	cin >> r;
+	cout << "\nMajor Radius: ";
+	cin >> R;
+	cout << "\n\nVolume = " << volume << endl
+		<< "\nSurface Area = " << sa << endl;
+}
+void ellipsoid3d()
+{
+	double x = 0.0, y = 0.0, z = 0.0, volume = 0.0, sa = 0.0;
+	volume = (4 / 3) * pi * x * y * z;
+	sa = 4 * pi * pow((1 / 3)*(pow(x * y, 1.6) + pow(x * z, 1.6) + pow(y*z, 1.6)), 1 / 1.6);
+
+	cout << "\n\nELLIPSOID Menu\n\n"
+		<< "         4\n"
+		<< "Volume = - * π * x * y * z\n"
+		<< "Surface Area = [Too Complicated To Write]\n\n"
+		<< "Input:\n\n"
+		<< "x: ";
+		cin >> x;
+		cout << "\ny: ";
+		cin >> y;
+		cout << "\nz: ";
+		cin >> z;
+		cout << "\n\nVolume = " << volume << endl
+			<< "Surface Area = " << sa << endl;
+}
+
 void circleFunc()
 {
+	char circchoice = ' ';
 
+	cout << "\n\nALL ABOUT CIRCLES(Kinda) Menu\n\n"
+		<< "1. Arc Measure\n"
+		<< "2. Area of a Sector\n"
+		<< "3. Equations of a Circle\n"
+		<< "4. Area + Circumference\n\n"
+		<< "Enter your choice: ";
+	cin >> circchoice;
+
+		switch (circchoice)
+		{
+		case '1': arcmeasure();
+			break;
+		case '2': sectorarea();
+			break;
+		case '3': circeq();
+			break;
+		case '4': circle2d();
+			break;
+		default: errorFunc();
+			break;
+		}
 }
+void arcmeasure()
+{
+	string category = " ";
+	double r = 0.0, n = 0.0, s = 0.0;
+	s = (n / 360) * (2 * pi * r);
+
+	cout << "\n\nARC MEASURE Menu\n"
+		<< "Angles are in Degrees\n"
+		<< "The central angle is Θ.\n\n"
+		<< "       Θ\n"
+		<< "S = ------- * (2 * π * r)\n"
+		<< "      360  \n\n"
+		<< "Input:\n"
+		<< "Radius: ";
+	cin >> r;
+	cout << "\nCentral Angle: ";
+	cin >> n;
+	cout << "\n\nArc Measure = " << s;
+
+	if (0 < n < 180) 
+	{
+		category = "Minor Arc";
+	}
+	else if (180 < n < 360)
+	{
+		category = "Major Arc";
+	}
+	else if (n == 180)
+	{
+		category = "Semicircle";
+	}
+	else { errorFunc(); }
+
+	cout << "\n\nS = " << s << ": " << category;
+}
+void sectorarea()
+{
+	double ang = 0.0, r = 0.0, area =0.0;
+	area = (1 / 2) * pow(r, 2) * ang;
+
+	cout << "\n\nArea of Sector\n"
+		<< "Angle is expected to be in Radians (Decimal form upto 3 places)\n\n"
+		<< "A = ½ * r² * Θ\n\n"
+		<< "Input:\n\n"
+		<< "Θ: ";
+	cin >> ang;
+	cout << "\nr: ";
+	cin >> r;
+	cout << "\n\nArea = " << area << endl;
+}
+void circeq()
+{
+	double h = 0.0, k = 0.0, r = 0.0;
+
+	cout << "\n\nEQUATIONS OF A CIRCLE Menu\n\n"
+		<< "(x - h)² + (y - k)² = r²\n\n"
+		<< "Input:\n\n"
+		<< "h: ";
+	cin >> h;
+	cout << "\nk: ";
+	cin >> k;
+	cout << "\nr: ";
+	cin >> r;
+	cout << "\n\n(x - " << h << ")² + (y -" << k << ")² = " << pow(r , 2) << endl;
+}
+
 void transFunc()
 {
+	char transchoice = ' ';
 
+	cout << "\n\nTRANSFORMATION Menu\n\n"
+		<< "1. Rotations\n"
+		<< "2. Translation\n"
+		<< "3. Reflection\n"
+		<< "4. Dilation\n\n"
+		<< "Enter your choice: ";
+	cin >> transchoice;
+
+	switch (transchoice)
+	{
+	case '1': rotate();
+		break;
+	case '2': translate();
+		break;
+	case '3': reflect();
+		break;
+	case '4': dilation();
+		break;
+	default: errorFunc();
+		break;
+	}
 }
+void rotate()
+{
+	cout << "\n\nROTATION Menu\n\n"
+		<< "";
+}
+void translate()
+{
+	cout << "\n\nTRANSLATION Menu\n\n"
+		<< "";
+}
+void reflect()
+{
+	cout << "\n\nREFLECTION Menu\n\n"
+		<< "";
+}
+void dilation()
+{
+	cout << "\n\nDILATION Menu\n\n"
+		<< "";
+}
+
+
 void seqFunc()
 {
 
