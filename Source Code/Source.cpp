@@ -1089,10 +1089,6 @@ void triangle2d()
 {
 	double a = 0.0, b = 0.0, c = 0.0, s = 0.0, harea = 0.0, area = 0.0, perimeter = 0.0;
 	s = (a + b + c) / 2;
-	harea = sqrt(s*(s - a)*(s - b)*(s - c));
-	area = 0.5 * a * b;
-	perimeter = a + b + c;
-
 	char trichoice = ' ';
 
 	cout << "\n\nTRIANGLE Menu\n\n"
@@ -1122,6 +1118,9 @@ void triangle2d()
 			cin >> a;
 			cout << "\nHeight: ";
 			cin >> b;
+
+			area = 0.5 * a * b;
+			
 			cout << "\n\nArea = " << area << endl;
 			break;
 		case '2': 
@@ -1143,6 +1142,9 @@ void triangle2d()
 			cin >> b;
 			cout << "\nC: ";
 			cin >> c;
+
+			harea = sqrt(s*(s - a)*(s - b)*(s - c));
+
 			cout << "\n\nArea = " << harea << endl;
 			break;
 		case '3':
@@ -1161,6 +1163,9 @@ void triangle2d()
 			cin >> b;
 			cout << "C: ";
 			cin >> c;
+
+			perimeter = a + b + c;
+
 			cout << "\n\nPerimeter = " << perimeter << endl;
 			break;
 		default: errorFunc();
@@ -1213,8 +1218,6 @@ void rect2d()
 void parallel2d()
 {
 	double h = 0.0, b = 0.0, s = 0.0, area = 0.0, perimeter = 0.0;
-	area = b * h;
-	perimeter = 2 * (s + b);
 
 	cout << "\n\nPARALLELOGRAM Menu\n\n"
 		<< "     ______________\n"
@@ -1230,6 +1233,10 @@ void parallel2d()
 	cin >> b;
 	cout << "\nSide(s): ";
 	cin >> s;
+
+	area = b * h;
+	perimeter = 2 * (s + b);
+
 	cout << "Area = " << area << endl
 		<< "Perimeter = " << perimeter << endl;
 }
@@ -1237,10 +1244,6 @@ void trape2d()
 {
 	double h = 0.0, b1 = 0.0, b2 = 0.0, s1 = 0.0, s2 = 0.0, area = 0.0, 
 		perimeter = 0.0, perimeter2 = 0.0, ang1 = 0.0, ang2 = 0.0;
-	area = 0.5 * h * (b1 + b2);
-	perimeter = s1 + s2 + b1 + b2;
-	perimeter2 = b1 + b2 + h * (asin(ang1) + asin(ang2));
-
 	char useangles = ' ';
 
 	cout << "\n\nTRAPEZOID Menu\n\n"
@@ -1278,14 +1281,15 @@ void trape2d()
 	}
 	else { errorFunc(); }
 
+	area = 0.5 * h * (b1 + b2);
+	perimeter = s1 + s2 + b1 + b2;
+	perimeter2 = b1 + b2 + h * (asin(ang1) + asin(ang2));
+
 	cout << "Area = " << area << endl;
 }
 void circle2d()
 {
 	double radius = 0.0, area = 0.0, circumference = 0.0;
-	area = pi * pow(radius, 2);
-	circumference = 2 * pi * radius;
-
 	char circlechoice = ' ';
 
 	cout << "\n\nCIRCLE Menu\n\n"
@@ -1294,14 +1298,16 @@ void circle2d()
 		<< "Input:\n"
 		<< "Radius: ";
 	cin >> radius;
+
+	area = pi * pow(radius, 2.0);
+	circumference = 2 * pi * radius;
+
 	cout << "\nArea = " << area << endl
 		<< "Circumference = " << circumference << endl;
 }
 void ellipse2d() 
 {
 	double r1 = 0.0, r2 = 0.0, area = 0.0, circumference = 0.0;
-	area = pi * r1 * r2;
-	circumference = 4 * (r1 + r2) * (pi / 4);
 
 	cout << "\n\nELLIPSE Menu\n\n"
 		<<"r1 is the short axis. r2 is the long axis.\n\n"
@@ -1313,6 +1319,10 @@ void ellipse2d()
 	cin >> r1;
 	cout << "\nr2: ";
 	cin >> r2;
+
+	area = pi * r1 * r2;
+	circumference = 4 * (r1 + r2) * (pi / 4);
+
 	cout << "\n\nArea = " << area << endl
 		<< "Circumference = " << circumference << endl;
 }
@@ -1357,8 +1367,6 @@ void area3dFunc()
 void rectprism3d()
 {
 	double l = 0.0, w = 0.0, h = 0.0, sa = 0.0, volume = 0.0;
-	volume = l * w * h;
-	sa = 2 * l * w + 2 * h * w + 2 * l * h;
 
 	cout << "\n\nRECTANGULAR PRISM Menu\n\n"
 		<< "Volume = l*w*h\n"
@@ -1370,17 +1378,16 @@ void rectprism3d()
 	cin >> w;
 	cout << "\nH: ";
 	cin >> h;
+
+	volume = l * w * h;
+	sa = 2 * l * w + 2 * h * w + 2 * l * h;
+
 	cout << "\n\nV = " << volume << endl
 		<< "SA = " << sa << endl;
 }
 void cylinder3d()
 {
 	double r = 0.0, h = 0.0, C = 0.0, B = 0.0, sa = 0.0, volume = 0.0;
-	B = pi * pow(r, 2);
-	C = 2 * pi * r;
-	volume = B * h;
-	sa = 2 * B + C * h;
-
 	char cylinderchoice = ' ';
 
 	cout << "\n\nCYLINDER Menu\n\n"
@@ -1391,14 +1398,18 @@ void cylinder3d()
 	cin >> r;
 	cout << "\nHeight: ";
 	cin >> h;
+
+	B = pi * pow(r, 2);
+	C = 2 * pi * r;
+	volume = B * h;
+	sa = 2 * B + C * h;
+
 	cout << "\n\nV = " << volume << endl
 		<< "SA = " << sa << endl;
 }
 void pyramid3d()
 {
 	double r = 0.0, h = 0.0, sh = 0.0,sa = 0.0, volume = 0.0;
-	volume = (1 / 3) * pi * pow(r , 2) * h;
-	sa = pi * pow(r , 2) + (1 / 2) * (2 * pi * r) * sh;
 
 	cout << "\n\nPYRAMID Menu\n\n"
 		<< "         1\n"
@@ -1412,14 +1423,16 @@ void pyramid3d()
 	cin >> sh;
 	cout << "\nHeight: ";
 	cin >> h;
+
+	volume = (1 / 3) * pi * pow(r, 2) * h;
+	sa = pi * pow(r, 2) + (1 / 2) * (2 * pi * r) * sh;
+
 	cout << "\n\nV = " << volume << endl
 		<< "SA = " << sa << endl;
 }
 void cone3d() 
 {
 	double r = 0.0, h = 0.0, sh = 0.0, sa = 0.0, volume = 0.0;
-	volume = (1 / 3) * pi * pow(r, 2) * h;
-	sa = pi * pow(r, 2) + (1 / 2) * (2 * pi * r) * sh;
 
 	cout << "\n\nCONE Menu\n\n"
 		<< "         1\n"
@@ -1433,14 +1446,16 @@ void cone3d()
 	cin >> sh;
 	cout << "\nHeight: ";
 	cin >> h;
+
+	volume = (1 / 3) * pi * pow(r, 2) * h;
+	sa = pi * pow(r, 2) + (1 / 2) * (2 * pi * r) * sh;
+
 	cout << "\n\nV = " << volume << endl
 		<< "SA = " << sa << endl;
 }
 void sphere3d()
 {
 	double r = 0.0, volume = 0.0, sa = 0.0;
-	volume = (4 / 3) * pi * pow(r, 3);
-	sa = 4 * pi * pow(r, 2);
 
 	cout << "\n\nSPHERE Menu\n\n"
 		<< "         4\n"
@@ -1450,14 +1465,16 @@ void sphere3d()
 		<< "Input:\n\n"
 		<< "Radius: ";
 	cin >> r;
+
+	volume = (4 / 3) * pi * pow(r, 3);
+	sa = 4 * pi * pow(r, 2);
+
 	cout << "\n\nVolume = " << volume << endl
 		<< "Surface Area = " << sa << endl;
 }
 void cube3d()
 {
 	double s = 0.0, volume = 0.0, sa = 0.0;
-	volume = pow(s, 3);
-	sa = 6 * pow(s, 2);
 
 	cout << "\n\nCUBE Menu\n\n"
 		<< "Volume = s³\n"
@@ -1465,14 +1482,16 @@ void cube3d()
 		<< "Input:\n\n"
 		<< "Side: ";
 	cin >> s;
+
+	volume = pow(s, 3);
+	sa = 6 * pow(s, 2);
+
 	cout << "\n\nVolume = " << volume << endl
 		<< "\nSurface Area = " << sa << endl;
 }
 void torus3d()
 {
 	double r = 0.0, R = 0.0, volume = 0.0, sa = 0.0;
-	volume = 2 * pow(pi,2) * pow(r, 2) * R;
-	sa =  4 * pow(pi, 2) * R * r;
 
 	cout << "\n\nTORUS Menu\n\n"
 		<< "Volume = (2 * π²) * (Major Radius) * (Minor Radius)²)\n"
@@ -1482,14 +1501,16 @@ void torus3d()
 	cin >> r;
 	cout << "\nMajor Radius: ";
 	cin >> R;
+
+	volume = 2 * pow(pi, 2) * pow(r, 2) * R;
+	sa = 4 * pow(pi, 2) * R * r;
+
 	cout << "\n\nVolume = " << volume << endl
 		<< "\nSurface Area = " << sa << endl;
 }
 void ellipsoid3d()
 {
 	double x = 0.0, y = 0.0, z = 0.0, volume = 0.0, sa = 0.0;
-	volume = (4 / 3) * pi * x * y * z;
-	sa = 4 * pi * pow((1 / 3)*(pow(x * y, 1.6) + pow(x * z, 1.6) + pow(y*z, 1.6)), 1 / 1.6);
 
 	cout << "\n\nELLIPSOID Menu\n\n"
 		<< "         4\n"
@@ -1502,6 +1523,10 @@ void ellipsoid3d()
 		cin >> y;
 		cout << "\nz: ";
 		cin >> z;
+
+		volume = (4 / 3) * pi * x * y * z;
+		sa = 4 * pi * pow((1 / 3)*(pow(x * y, 1.6) + pow(x * z, 1.6) + pow(y*z, 1.6)), 1 / 1.6);
+
 		cout << "\n\nVolume = " << volume << endl
 			<< "Surface Area = " << sa << endl;
 }
@@ -1536,7 +1561,6 @@ void arcmeasure()
 {
 	string category = " ";
 	double r = 0.0, n = 0.0, s = 0.0;
-	s = (n / 360) * (2 * pi * r);
 
 	cout << "\n\nARC MEASURE Menu\n"
 		<< "Angles are in Degrees\n"
@@ -1551,11 +1575,11 @@ void arcmeasure()
 	cin >> n;
 	cout << "\n\nArc Measure = " << s;
 
-	if (0 < n < 180) 
+	if (n  > 0 && n < 180) 
 	{
 		category = "Minor Arc";
 	}
-	else if (180 < n < 360)
+	else if (n > 180 && n < 360)
 	{
 		category = "Major Arc";
 	}
@@ -1565,12 +1589,13 @@ void arcmeasure()
 	}
 	else { errorFunc(); }
 
+	s = (n / 360) * (2 * pi * r);
+
 	cout << "\n\nS = " << s << ": " << category;
 }
 void sectorarea()
 {
 	double ang = 0.0, r = 0.0, area =0.0;
-	area = (1 / 2) * pow(r, 2) * ang;
 
 	cout << "\n\nArea of Sector\n"
 		<< "Angle is expected to be in Radians (Decimal form upto 3 places)\n\n"
@@ -1580,6 +1605,9 @@ void sectorarea()
 	cin >> ang;
 	cout << "\nr: ";
 	cin >> r;
+
+	area = (1 / 2) * pow(r, 2) * ang;
+
 	cout << "\n\nArea = " << area << endl;
 }
 void circeq()
