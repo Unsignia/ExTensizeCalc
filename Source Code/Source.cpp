@@ -1084,7 +1084,6 @@ void area2dFunc()
 		break;
 	}
 }
-
 void triangle2d()
 {
 	double a = 0.0, b = 0.0, c = 0.0, s = 0.0, harea = 0.0, area = 0.0, perimeter = 0.0;
@@ -1625,7 +1624,6 @@ void circeq()
 	cin >> r;
 	cout << "\n\n(x - " << h << ")² + (y -" << k << ")² = " << pow(r , 2) << endl;
 }
-
 void transFunc()
 {
 	char transchoice = ' ';
@@ -1654,37 +1652,299 @@ void transFunc()
 }
 void rotate()
 {
+	float x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+	char rotatechoice = ' ';
+
 	cout << "\n\nROTATION Menu\n\n"
-		<< "";
+		<< "1. 90° Counterclockwise\n"
+		<< "2. 180° Counterclockwise\n"
+		<< "3. 270° Counterclockwise\n\n"
+		<< "Enter your choice: ";
+	cin >> rotatechoice;
+
+	if (rotatechoice == '1')
+	{
+		cout << "\n\n90° Counterclockwise\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		x2 = -1 * y1;
+		y2 = x1;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
+	}
+	else if (rotatechoice == '2')
+	{
+		cout << "\n\n180° Counterclockwise\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		x2 = -1 * x1;
+		y2 = -1 * y1;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
+	}
+	else if (rotatechoice == '3')
+	{
+		cout << "\n\n270° Counterclockwise\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		x2 = y1;
+		y2 = -1 * x1;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
+	}
+	else { errorFunc(); }
 }
 void translate()
 {
+	double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, move = 0.0;
+	char transchoice = ' ';
+
 	cout << "\n\nTRANSLATION Menu\n\n"
-		<< "";
+		<< "1. UP\n"
+		<< "2. DOWN\n"
+		<< "3. LEFT\n"
+		<< "4. RIGHT\n\n"
+		<< "Enter your choice: ";
+		cin >> transchoice;
+
+		if (transchoice == '1')
+	{
+		cout << "\n\nUpward Translation\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+		cout << "\nUnits to move up: ";
+		cin >> move;
+
+		y2 = y1 + move;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x1 << " , " << y2 << ")" << endl;
+	}
+		else if (transchoice == '2')
+		{
+			cout << "\n\nDownward Translation\n\n"
+				<< "X-Coordinate: ";
+			cin >> x1;
+			cout << "\nY-Coordinate: ";
+			cin >> y1;
+			cout << "\nUnits to move down: ";
+			cin >> move;
+
+			y2 = y1 - move;
+
+			cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+			cout << "\n\nNew: (" << x1 << " , " << y2 << ")" << endl;
+		}
+		else if (transchoice == '3')
+		{
+			cout << "\n\nLeftward Translation\n\n"
+				<< "X-Coordinate: ";
+			cin >> x1;
+			cout << "\nY-Coordinate: ";
+			cin >> y1;
+			cout << "\nUnits to move left: ";
+			cin >> move;
+
+			x2 = x1 - move;
+
+			cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+			cout << "\n\nNew: (" << x2 << " , " << y1 << ")" << endl;
+		}
+		else if (transchoice == '4')
+		{
+			cout << "\n\nRightward Translation\n\n"
+				<< "X-Coordinate: ";
+			cin >> x1;
+			cout << "\nY-Coordinate: ";
+			cin >> y1;
+			cout << "\nUnits to move right: ";
+			cin >> move;
+
+			x2 = x1 + move;
+
+			cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+			cout << "\n\nNew: (" << x2 << " , " << y1 << ")" << endl;
+		}
+		else { errorFunc(); }
 }
 void reflect()
 {
+	double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0;
+	char reflectchoice = ' ';
+
 	cout << "\n\nREFLECTION Menu\n\n"
-		<< "";
+		<< "1. Reflection across the x-axis\n"
+		<< "2. Reflection across the y-axis\n"
+		<< "3. Reflection across y = x\n"
+		<< "4. Reflection across y = -x\n\nS"
+		<< "Enter your choice: ";
+	cin >> reflectchoice;
+
+	if (reflectchoice == '1')
+	{
+		cout << "\n\nAcross x-axis\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		y2 = -1 * y1;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x1 << " , " << y2 << ")" << endl;
+	}
+	else if (reflectchoice == '2')
+	{
+		cout << "\n\nAcross y-axis\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		x2 = -1 * x1;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y1 << ")" << endl;
+	}
+	else if (reflectchoice == '3')
+	{
+		cout << "\n\nAcross y = x\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		x2 = y1;
+		y2 = x1;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
+	}
+	else if (reflectchoice == '4')
+	{
+		cout << "\n\nAcross y = -x\n\n"
+			<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+
+		x2 = -1 * y1;
+		y2 = -1 * x2;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
+	}
 }
 void dilation()
 {
+	double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, rate = 0.0;
+
 	cout << "\n\nDILATION Menu\n\n"
-		<< "";
+		<< "X-Coordinate: ";
+		cin >> x1;
+		cout << "\nY-Coordinate: ";
+		cin >> y1;
+		cout << "\nScale Factor: ";
+		cin >> rate;
+
+		x2 = x1 * rate;
+		y2 = y1 * rate;
+
+		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
+		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
 }
 
-
+// TODO very confusing to code - work on - SeqFunc
 void seqFunc()
 {
+	char seqchoice = ' ';
 
+	cout << "\n\nSEQUENCES\n\n"
+		<< "1. Geometric Sequence + Sum\n"
+		<< "2. Arithmetic Sequence\n"
+		<< "Enter your choice: ";
+	cin >> seqchoice;
+
+	switch (seqchoice)
+	{
+		double a1 = 0.0, r = 0.0, n = 0.0, sum = 0.0, n1 = 0.0, n2 = 0.0;
+
+	case '1':
+		char geocho = ' ';
+		cout << "\n\nGEOMETRIC SEQUENCE\n\n" //TODO Fix & Add SUM
+			<< "1. Input\n"
+			<< "2. Solve for Sequence\n\n"
+			<< "Enter your choice: ";
+		cin >> geocho;
+
+		if (geocho == '1') 
+		{
+			cout << "\n\nInput:\n\n"
+				<< "a(1): ";
+			cin >> a1;
+			cout << "\nr: ";
+			cin >> r;
+			cout << "\nn: ";
+			cin >> n;
+			cout << "\n\na(n) = " << a1 << " * " << r << "^ (" << n - 1 << ")";
+		}
+		else if (geocho == '2')
+		{
+			cout << "\n\nEnter a term (n = 1): ";
+			cin >> n1;
+			cout << "\nConsecutive term (n = 2): ";
+			cin >> n2;
+
+			r = n2 / n1;
+
+			cout << "\n\na(n) = " << a1 << " * " << r << "^ (" << n - 1 << ")";
+		}
+		break;
+	case '2':
+		cout << "\n\nARITHMETIC SEQUENCE\n\n"
+			<< "";
+		break;
+	default: errorFunc();
+		break;
+	}
 }
 void quadFunc()
 {
+	double a = 0.0, b = 0.0, c = 0.0, rad = 0.0;
+	rad = sqrt(pow(b, 2) - 4 * a * c);
 
+	cout << "\n\nQUADRATIC EQUATION\n\n"
+		<< "    -b ± √(b² - 4ac)\n"
+		<< "x = ----------------\n"
+		<< "          2a\n\n"
+		<< "Input:\n\n"
+		<< "a: ";
+	cin >> a;
+	cout << "\nb: ";
+	cin >> b;
+	cout << "\nc: ";
+	cin >> c;
+	cout << "    -" << b << " ± " << rad << "\n"
+		<< "x = ----------------\n"
+		<< "          " << 2 * a << "\n\n";
 }
 void coorFunc()
 {
-
+	cout << "\n\nCOORDINATE GEOMETRY Menu\n\n";
 }
 void expFunc()
 {
