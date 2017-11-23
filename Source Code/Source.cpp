@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <stdlib.h>
 #include <cmath>
 #include <string>
@@ -1870,8 +1871,10 @@ void dilation()
 
 // TODO very confusing to code - work on - SeqFunc
 void seqFunc()
-{
-	char seqchoice = ' ';
+{		
+	double a1 = 0.0, r = 0.0, n = 0.0, sum = 0.0, n1 = 0.0, n2 = 0.0;
+	char seqchoice = ' ', geocho = ' ';
+;
 
 	cout << "\n\nSEQUENCES\n\n"
 		<< "1. Geometric Sequence + Sum\n"
@@ -1881,10 +1884,7 @@ void seqFunc()
 
 	switch (seqchoice)
 	{
-		double a1 = 0.0, r = 0.0, n = 0.0, sum = 0.0, n1 = 0.0, n2 = 0.0;
-
 	case '1':
-		char geocho = ' ';
 		cout << "\n\nGEOMETRIC SEQUENCE\n\n" //TODO Fix & Add SUM
 			<< "1. Input\n"
 			<< "2. Solve for Sequence\n\n"
@@ -1944,19 +1944,135 @@ void quadFunc()
 }
 void coorFunc()
 {
-	cout << "\n\nCOORDINATE GEOMETRY Menu\n\n";
+	double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, 
+		distance = 0.0, midx = 0.0, midy = 0.0;
+;
+	char coorchoice = ' ';
+
+	cout << "\n\nCOORDINATE GEOMETRY Menu\n\n"
+		<< "1. Distance Formula\n"
+		<< "2. Midpoint Formula\n"
+		<< "3. Slope\n\n"
+		<< "Enter your choice: ";
+	cin >> coorchoice;
+
+	if (coorchoice == '1')
+	{
+		cout << "\n\nDISTANCE FORMULA\n\n"
+			<< "Input:\n\n"
+			<< "x1: ";
+		cin >> x1;
+		cout << "\ny1: ";
+		cin >> y1;
+		cout << "\nx2: ";
+		cin >> x2;
+		cout << "\ny2: ";
+		cin >> y2;
+
+		distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+
+		cout << "\n\n" << distance << endl;
+	}
+	else if (coorchoice == '2')
+	{
+		cout << "\n\nMIDPOINT FORMULA\n\n"
+			<< "Input:\n\n"
+			<< "x1: ";
+		cin >> x1;
+		cout << "\ny1: ";
+		cin >> y1;
+		cout << "\nx2: ";
+		cin >> x2;
+		cout << "\ny2: ";
+		cin >> y2;
+
+		midx = (x1 + x2) / 2;
+		midy = (y1 + y2) / 2;
+
+		cout << "\n\n(" << midx << " , " << midy << ")" << endl;
+	}
+	else if (coorchoice == '3')
+	{
+		cout << "\n\nSLOPE\n\n"
+			<< "Input:\n\n"
+			<< "x1: ";
+		cin >> x1;
+		cout << "\ny1: ";
+		cin >> y1;
+		cout << "\nx2: ";
+		cin >> x2;
+		cout << "\ny2: ";
+		cin >> y2;
+
+		cout << "\n\n           " << y2 - y1
+			<< "\nSlope = ---"
+			<< "\n " << x2 - x1;
+	}
+	else { errorFunc(); }
 }
 void expFunc()
 {
+	double p = 0.0, e = 2.7182818, k = 0.0, t = 0.0, finalp = 0.0;
 
+	cout << "\n\nEXPONENTIAL GROWTH/DECAY\n\n"
+		<< "A = P * e ^ (r * t)\n\n"
+		<< "Input:\n\n"
+		<< "P: ";
+	cin >> p;
+	cout << "\nk: ";
+	cin >> k;
+	cout << "\nt: ";
+	cin >> t;
+
+	finalp = p * pow(e, k * t);
+
+	cout << "\n\nP =" << p << "e ^ (" << k * t << ")"
+		<< "\nP = " << fixed << setprecision(3) << finalp;
 }
 void vectorFunc()
 {
+	double x1 = 0.0, x2 = 0.0, y1 = 0.0, y2 = 0.0, mag = 0.0, ang = 0.0;
+	char vecchoice = ' ';
 
+	cout << "\n\nVECTOR\n"
+		<< "Find Magnitude + Direction\n\n"
+		<< "Input:\n\n"
+		<< "x1: ";
+	cin >> x1;
+	cout << "\ny1: ";
+	cin >> y1;
+	cout << "\nx2: ";
+	cin >> x2;
+	cout << "\ny2: ";;
+	cin >> y2;
+
+	mag = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+	ang = atan((y2 - y1) / (x2 - x1));
+	ang *= 180 / pi;
+
+	cout << "\n\nMagnitude = " << mag << endl
+		<< "Direction = " << ang << "°" <<endl;
 }
 void measureFunc()
 {
-
+	cout << "\n\nDifferent types of Useful Measurements\n\n"
+		<< "1 inch = 2.54 centimeters\t"
+		<< "1 kilometer = 0.62 mile\n"
+		<< "1 cup = 8 fluid ounces\t\t"
+		<< "1 meter = 39.37 inches\n"
+		<< "1 pound = 16 ounces\t\t"
+		<< "1 pint = 2 cups\n"
+		<< "1 mile = 5,280 feet\t\t"
+		<< "1 pound = 0.454 kilogram\n"
+		<< "1 quart = 2 pints\t\t"
+		<< "1 mile = 1,760 yards\n"
+		<< "1 kilogram = 2.2 pounds\t\t"
+		<< "1 gallon = 4 quarts\n"
+		<< "1 mile = 1.609 kilometers\t"
+		<< "1 ton = 2,000 pounds\n"
+		<< "1 gallon = 3.785 liters\t\t"
+		<< "1 liter = 0.264 gallon\n"
+		<< "1 liter = 1,000 cubic centimeters\n";
 }
 
 
@@ -1970,6 +2086,3 @@ void errorFunc()
 {
 	cout << "\nError: Enter one of the choices correctly./n";
 }
-
-
-
