@@ -2068,15 +2068,42 @@ void measureFunc()
 		<< "1 liter = 1,000 cubic centimeters\n";
 }
 		// Calculus Functions
+	// Stopped before finished. 
 void derivFunc()
 {
-	cout << "\n\nDERIVATIVE Menu\n\n"
-		<< "";
+	double base = 0.0, exp = 0.0;
+	char repeat = ' ';
+
+	cout << "\n\nDERIVATIVE Menu\n"
+		<< "Can only do term by term\n\n";
+
+	do
+	{
+		cout << "\n\nBase: ";
+		cin >> base;
+		cout << "\nExponent: ";
+		cin >> exp;
+		cout << "\n\n" << base* exp << "x ^ (" << exp - 1 << ")";
+
+		cout << "\n\nWould you like to do another term?: ";
+	cin >> repeat;
+	} 
+	while (repeat == 'y' || repeat == 'Y');	
 }
 void integralFunc()
 {
-	cout << "\n\nINTEGRAL Menu\n\n"
-		<< "";
+	char repeat = ' ';
+
+	cout << "\n\nINTEGRAL Menu\n"
+		<< "Can only do term by term\n\n";
+
+	do
+	{
+		cout << ""
+			<< "\n\nWould you like to do another term?: ";
+		cin >> repeat;
+	} 
+	while (repeat == 'y' || repeat == 'Y');
 }
 
  // Function to end program
