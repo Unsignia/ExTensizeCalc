@@ -65,6 +65,8 @@ void translate();
 void reflect();
 void dilation();
 // Calculus Function Prototypes
+void derivFunc();
+void integralFunc();
 
 int endFunc();
 void errorFunc();
@@ -100,14 +102,9 @@ char showMenu()
 
 	if (choice1 == ALGEBRA_CHOICE)
 	{
-		char choice2 = ' ';
-		char ADDITION_CHOICE = '1',
-			SUBTRACTION_CHOICE = '2',
-			MULTIPLICATION_CHOICE = '3',
-			DIVISION_CHOICE = '4',
-			QUIT_CHOICE = 'Q';
-
 		system("CLS"); // Clears the Previous Screen
+
+		char choice2 = ' ';
 
 		cout << "\n\t\tALGEBRA Menu\n\n"
 			<< "1. Addition\n"
@@ -137,16 +134,10 @@ char showMenu()
 		}
 	}
 	else if (choice1 == TRIGONOMETRY_CHOICE)
-	{
-		char choice3 = ' ';
-		char ANGLE_CHOICE = '1',
-			REF_CHOICE = '2',
-			IDENTITY_CHOICE = '3',
-			LAW_CHOICE = '4',
-			POLAR_CHOICE = '5',
-			QUIT_CHOICE = 'Q';
-
+	{		
 		system("CLS"); // TODO Use this in all presented functions
+
+		char choice3 = ' ';
 
 		cout << "\n\t\tTRIGONOMETRY Menu\n"
 			<< "\tThere is NO graphing in this program.\n"
@@ -181,22 +172,11 @@ char showMenu()
 	}
 	}
 	else if (choice1 == GEOMETRY_CHOICE)
-	{
-		char choice3 = ' ';
-		char AREA_2D_CHOICE = '1',
-			AREA_3D_CHOICE = '2',
-			CIRCLE_CHOICE = '3',
-			TRANSF_CHOICE = '4',
-			SEQ_CHOICE = '5',
-			QUADEQ_CHOICE = '6',
-			COOR_CHOICE = '7',
-			EXP_CHOICE = '8',
-			VECTOR_CHOICE = '9',
-			MEASURE_CHOICE = '0',
-			QUIT_CHOICE = 'Q';
-
+	{	
 		system("CLS");
 
+		char choice3 = ' ';
+		
 		cout << "\n\t\tGEOMETRY Menu\n\n"
 			<< "1. Perimeter/Area for 2D Shapes\n"
 			<< "2. Volume/Area for 3D Shapes\n"
@@ -243,7 +223,25 @@ char showMenu()
 	}
 	else if (choice1 == CALCULUS_CHOICE)
 	{
+		system("CLS");
 
+		char calcchoice = ' ';
+
+		cout << "\n\t\tCALCULUS Menu\n\n"
+			<< "1. Derivatives\n"
+			<< "2. Integrals\n\n"
+			<< "Enter your choice: ";
+		cin >> calcchoice;
+
+		switch(calcchoice)
+		{
+		case '1': derivFunc();
+			break;
+		case '2': integralFunc();
+			break;
+		default: errorFunc();
+			break;
+		}
 	}
 	else if (choice1 == QUIT_CHOICE) { endFunc(); }
 	else { errorFunc(); };
@@ -586,8 +584,6 @@ void refFunc()
 			errorFunc();
 		}
 }
-
-		// Identity Functions
 void identityFunc()
 {
 	char identitychoice = ' ';
@@ -1051,7 +1047,6 @@ void polarFunc()
 	}
 	else { errorFunc(); }
 }
-
 		// Geometry Functions
 void area2dFunc() 
 {
@@ -1530,7 +1525,6 @@ void ellipsoid3d()
 		cout << "\n\nVolume = " << volume << endl
 			<< "Surface Area = " << sa << endl;
 }
-
 void circleFunc()
 {
 	char circchoice = ' ';
@@ -1868,7 +1862,6 @@ void dilation()
 		cout << "\n\nOriginal: (" << x1 << " , " << y1 << ")" << endl;
 		cout << "\n\nNew: (" << x2 << " , " << y2 << ")" << endl;
 }
-
 // TODO very confusing to code - work on - SeqFunc
 void seqFunc()
 {		
@@ -2074,7 +2067,17 @@ void measureFunc()
 		<< "1 liter = 0.264 gallon\n"
 		<< "1 liter = 1,000 cubic centimeters\n";
 }
-
+		// Calculus Functions
+void derivFunc()
+{
+	cout << "\n\nDERIVATIVE Menu\n\n"
+		<< "";
+}
+void integralFunc()
+{
+	cout << "\n\nINTEGRAL Menu\n\n"
+		<< "";
+}
 
  // Function to end program
 int endFunc()
