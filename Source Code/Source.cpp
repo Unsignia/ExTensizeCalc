@@ -1,8 +1,4 @@
-#include <iostream>
-#include <iomanip>
-#include <stdlib.h>
-#include <cmath>
-#include <string>
+#include "header.h"
 
 #pragma execution_character_set("utf-8") // Allows for UTF usage
 using namespace std;
