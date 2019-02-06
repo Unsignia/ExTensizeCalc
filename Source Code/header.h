@@ -7,6 +7,9 @@
 #pragma execution_character_set("utf-8")
 #pragma once
 
+using std::cout;
+using std::cin;
+
 void PrintIntro();
 char showMenu();
 
