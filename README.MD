@@ -7,10 +7,10 @@ It will be able to perform functions needed for:
 - Trigonometry
 - Calculus
 
-**Library used**
+**Libraries used**
 1. GLFW
 2. GLEW
 
 **License**
 
-This project is licensed under the MIT License - see LICENSE.md file for details
+This project is licensed under the MIT License - see [LICENSE](https://github.com/Unsignia/ExtensiveCalculator/blob/master/LICENSE) file for details
