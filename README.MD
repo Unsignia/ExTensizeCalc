@@ -7,9 +7,6 @@ It will be able to perform functions needed for:
 - Trigonometry
 - Calculus
 
-**Libraries used**
-1. GLFW
-2. GLEW
 
 **License**
 
