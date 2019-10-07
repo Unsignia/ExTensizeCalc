@@ -1,0 +1,13 @@
+segment into appropriate categories (i.e. Temperature, Science, Math
+separate menus into funcs
+
+eliminate the limited number of input for each operation
+change if/else to switch
+
+worry about multiple char answers (or not)
+
+reconsider exit function
+
+add temperature
+add science - physic, chem, astro
+
