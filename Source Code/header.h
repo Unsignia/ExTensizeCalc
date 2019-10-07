@@ -19,9 +19,8 @@ using std::setprecision;
 
 void PrintIntro()
 {
-	cout << "\tThis is a simple calculator program.\n"
-		<< "\tThis program can accept up to 3 input\n"
-		<< "\tfrom the user for each operation.\n\n\n";
+	cout << "\tThis is a \'simple\' calculator program.\n"
+		<< "\tThis program can has multiple functions.\n\n\n";
 }
 
 // Function to end program
@@ -29,6 +28,7 @@ int endFunc()
 {
 	return 0;
 }
+
 // Function to display error message
 void errorFunc()
 {
@@ -353,7 +353,7 @@ public:
 
 			cout << "\nCoterminal Angles: ";
 
-			for (int count = 0; count <= 2; count++) // TODO add error 
+			for (int count = 0; count <= 2; count++) // TODO add error
 			{
 				refang = angle + 360;
 				cout << refang << " ";
@@ -541,7 +541,7 @@ public:
 			}
 		}
 	}
-	// Fix this 
+	// Fix this
 	void trig_ratio_solve()
 	{
 		double opp = 0.0, hyp = 0.0, ang = 0.0;
@@ -1856,7 +1856,7 @@ public:
 
 class Calculus {
 public:
-	// TODO Stopped before finished. 
+	// TODO Stopped before finished.
 	void derivFunc()
 	{
 		double base = 0.0, exp = 0.0;
@@ -1893,22 +1893,65 @@ public:
 	}
 };
 
+// Specific Math Menus
+char AlgebraMenu()
+{
 
+}
+char TrigMenu()
+{
+
+}
+char GeometryMenu()
+{
+
+}
+char CalculusMenu()
+{
+
+}
+
+// Menu
 char showMenu()
 {
+	char choice = ' ';
+	char MATH_MENU = '1',
+		SCIENCE_MENU = '2',
+		EXIT_CHOICE = 'E';
+
+		cout << "\t\tMAIN MENU\n\n"
+			<< "1. Mathematics Menu\n"
+			<< "2. Science Menu\n"
+			<< "E. EXIT\n\n"
+			<< "Enter your choice: ";
+		cin >> choice;
+
+		if (choice == MATH_MENU){
+			showMath();
+		} else if (choice == SCIENCE_MENU) {
+			showScience();
+		} else if (choice == EXIT_CHOICE) { endFunc(); }
+		else { errorFunc(); }
+		return choice;
+}
+
+char showMath()
+{
+	system("CLS"); // Clears the Previous Screen
+
 	char choice1 = ' ';
 	char ALGEBRA_CHOICE = '1',
 		TRIGONOMETRY_CHOICE = '2',
 		GEOMETRY_CHOICE = '3',
 		CALCULUS_CHOICE = '4',
-		QUIT_CHOICE = 'Q';
+		EXIT_CHOICE = 'E';
 
 	cout << "\t\tMATHEMATICS Menu\n\n"
 		<< "1. Algebra\n"
 		<< "2. Trigonometry\n"
 		<< "3. Geometry\n"
 		<< "4. Calculus\n\n"
-		<< "Q. Quit the Program\n\n"
+		<< "E. EXIT\n\n"
 		<< "Enter your choice: ";
 	cin >> choice1;
 
@@ -1925,7 +1968,7 @@ char showMenu()
 			<< "2. Subtraction\n"
 			<< "3. Multiplication\n"
 			<< "4. Division\n\n"
-			<< "Q. Quit the Program\n\n"
+			<< "E. EXIT\n\n"
 			<< "Enter your choice: ";
 		cin >> choice2;
 
@@ -1940,8 +1983,8 @@ char showMenu()
 			break;
 		case '4': alg.divisionFunc();
 			break;
-		case 'Q':
-		case 'q': endFunc();
+		case 'E':
+		case 'e': endFunc();
 			break;
 		default: cout << "Error: Enter one of the choices correctly.";
 			break;
@@ -1963,7 +2006,7 @@ char showMenu()
 			<< "3. Trigonometric Identities\n"
 			<< "4. Law of Sines/Law of Cosines/Law of Tangents\n"
 			<< "5. Polar Coordinates\n"
-			<< "Q. Quit the Program\n\n"
+			<< "E. EXIT\n\n"
 			<< "Enter your choice: ";
 		cin >> choice3;
 
@@ -1980,8 +2023,8 @@ char showMenu()
 			break;
 		case '5': trig.polarFunc();
 			break;
-		case 'Q':
-		case 'q': endFunc();
+		case 'E':
+		case 'e': endFunc();
 			break;
 		default: errorFunc();
 			break;
@@ -2006,7 +2049,7 @@ char showMenu()
 			<< "8. Exponential Growth/Decay\n"
 			<< "9. Vectors\n"
 			<< "0. Measurements\n\n"
-			<< "Q. Quit the Program\n\n"
+			<< "E. EXIT\n\n"
 			<< "Enter your choice: ";
 		cin >> choice3;
 
@@ -2032,8 +2075,8 @@ char showMenu()
 			break;
 		case '0': geo.measureFunc();
 			break;
-		case 'Q':
-		case 'q': endFunc();
+		case 'E':
+		case 'e': endFunc();
 			break;
 		default:
 			break;
@@ -2063,7 +2106,36 @@ char showMenu()
 			break;
 		}
 	}
-	else if (choice1 == QUIT_CHOICE) { endFunc(); }
-	else { errorFunc(); };
+	else if (choice1 == EXIT_CHOICE) { endFunc(); }
+	else { errorFunc(); }
 	return choice1;
+}
+
+char showScience()
+{
+	system("CLS"); // Clears the Previous Screen
+
+	char choice = ' ';
+	char PHYSICS_CHOICE = '1',
+		CHEMISTRY_CHOICE = '2',
+		ASTROLOGY_CHOICE = '3',
+		EXIT_CHOICE = '4';
+
+		cout << "\t\tSCIENCE Menu\n\n"
+		<< "1. Physics\n"
+		<< "2. Chemistry\n"
+		<< "3. Astrology\n\n"
+		<< "E. EXIT\n\n"
+		<< "Enter your choice: ";
+		cin >> choice;
+
+		if (choice == PHYSICS_CHOICE) {
+
+		} else if (choice == CHEMISTRY_CHOICE) {
+
+		} else if (choice == ASTROLOGY_CHOICE) {
+
+		} else if (choice == EXIT_CHOICE) { endFunc(); }
+		else { errorFunc(); }
+		return choice;
 }
